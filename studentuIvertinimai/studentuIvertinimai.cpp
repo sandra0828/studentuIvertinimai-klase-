@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <algorithm>
 using std::cout;
 using std::cin;
 using std::string;
@@ -13,51 +14,66 @@ using std::setw;
 using std::setprecision;
 using std::fixed;
 using std::left;
+using std::vector;
+
 
 struct Asmuo {
     string vardas, pavarde;
-    int pazymiai[10], egzaminas;
+    int egzaminas;
     float galutinis = 0;
+    vector<int> pazymiai;
 };
 
-float vidurkis(int pazymiai[])
+float vidurkis(vector <int> pazymiai)
 {
     float suma = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < pazymiai.size(); i++)
     {
         suma += pazymiai[i];
     }
 
-    return suma / 5;
+    return suma / pazymiai.size();
 }
 
-float mediana(int pazymiai[])
+float mediana(vector <int> pazymiai)
 {
-    // pazymiu masyvo surusiavimas
-    for (int i = 0; i < 5; i++) 
-    {
-        for (int j = 0; j < 5; j++)
-        {
-            if (pazymiai[i] < pazymiai[j])
-            {
-                int temp = pazymiai[i];
-                pazymiai[i] = pazymiai[j];
-                pazymiai[j] = temp;
-            }
-        }
-    }
+    sort(pazymiai.begin(), pazymiai.end());
 
-    return pazymiai[2]; // vidurinis narys is surusiuoto masyvo
+    int dydis = pazymiai.size();
+
+    if (dydis % 2 == 0)
+    {
+        return (float)(pazymiai[dydis / 2 - 1] + pazymiai[dydis / 2]) / 2;
+    }
+    else
+    {
+        return (float)pazymiai[dydis / 2];
+    }
 }
 
 int main()
 {
     Asmuo studentas;
 
-    cout << "Iveskite studento varda, pavarde, egzamino ivertinima ir 5 semestro pazymius: " << endl;
+    cout << "Iveskite studento varda, pavarde, egzamino ivertinima: " << endl;
     cin >> studentas.vardas >> studentas.pavarde >> studentas.egzaminas;
-    for (int i = 0; i < 5; i++) {
-        cin >> studentas.pazymiai[i];
+
+    bool arIvestas = true; // ar ivestas dar vienas pazymys 
+    int pazymys;
+
+    while (arIvestas == true)
+    {
+        cout << "Iveskite pazymi arba, jei ivesti visi pazymiai, iveskite -1: " << endl;
+        cin >> pazymys;
+
+        if (pazymys == -1)
+        {
+            arIvestas = false; // ivestas jau ne pazymys, o ivedimo stabdymo zenklas
+        }
+        else
+        {
+            studentas.pazymiai.push_back(pazymys);
+        }
     }
 
     int skaiciavimoBudas;
