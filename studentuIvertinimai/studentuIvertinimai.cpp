@@ -51,19 +51,17 @@ float mediana(vector <int> pazymiai)
     }
 }
 
-int main()
+void pazymiuIvedimas(Asmuo &stud)
 {
-    Asmuo studentas;
-
-    cout << "Iveskite studento varda, pavarde, egzamino ivertinima: " << endl;
-    cin >> studentas.vardas >> studentas.pavarde >> studentas.egzaminas;
+    cout << "Iveskite egzamino ivertinima: " << endl;
+    cin >> stud.egzaminas;
 
     bool arIvestas = true; // ar ivestas dar vienas pazymys 
     int pazymys;
 
     while (arIvestas == true)
     {
-        cout << "Iveskite pazymi arba, jei ivesti visi pazymiai, iveskite -1: " << endl;
+        cout << "Iveskite pazymi arba, jei ivesti visi pazymiai, iveskite -1: (ivedus spauskite enter)" << endl;
         cin >> pazymys;
 
         if (pazymys == -1)
@@ -72,35 +70,89 @@ int main()
         }
         else
         {
-            studentas.pazymiai.push_back(pazymys);
+            stud.pazymiai.push_back(pazymys);
         }
     }
+}
 
-    int skaiciavimoBudas;
-    cout << "Pasirinkite, kaip skaiciuoti galutini bala: 1 - naudojant vidurki; 2 - naudojant mediana" << endl;
-    cin >> skaiciavimoBudas;
+void atsitiktiniaiPazymiai(Asmuo &stud)
+{
+    stud.egzaminas = rand() % 10 + 1;
+    cout << "Egzamino pazymys: " << stud.egzaminas << endl;
 
-    if (skaiciavimoBudas == 1) // naudojamas vidurkis
+    int kiek;
+    cout << "Kiek sugeneruoti pazymiu? : " << endl;
+    cin >> kiek;
+
+    cout << "Semestro pazymiai: ";
+    for (int i = 0; i < kiek; i++)
     {
-        float semestroRez = vidurkis(studentas.pazymiai);
-        studentas.galutinis = semestroRez * 0.4 + studentas.egzaminas * 0.6;
-
-        cout << left << setw(15) << "Vardas" << " | " << setw(20) << "Pavarde" << " | " << "Galutinis (Vid.) " << endl;
-        cout << "-------------------------------------------------------------" << endl;
-        cout << left << setw(15) << studentas.vardas << " | " << setw(20) << studentas.pavarde << " | " << fixed << setprecision(2) << studentas.galutinis;
+        int random = rand() % 10 + 1;
+        cout << random << " ";
+        stud.pazymiai.push_back(random);
     }
-    else if (skaiciavimoBudas == 2) // naudojama mediana
-    {
-        float semestroRez = mediana(studentas.pazymiai);
-        studentas.galutinis = semestroRez * 0.4 + studentas.egzaminas * 0.6;
+    cout << endl;
+    
+}
 
-        cout << left << setw(15) << "Vardas" << " | " << setw(20) << "Pavarde" << " | " << "Galutinis (Med.) " << endl;
-        cout << "-------------------------------------------------------------" << endl;
-        cout << left << setw(15) << studentas.vardas << " | " << setw(20) << studentas.pavarde << " | " << fixed << setprecision(2) << studentas.galutinis;
-    }
-    else
+int main()
+{
+    srand(time(0));
+
+    Asmuo studentas[10];
+    int studentuSk;
+    cout << "Kiek bus studentu? " << endl;
+    cin >> studentuSk;
+
+    for (int i = 0; i < studentuSk; i++)
     {
-        return -1;
+        cout << "Iveskite studento varda, pavarde: " << endl;
+        cin >> studentas[i].vardas >> studentas[i].pavarde;
+
+        int kokiePazymiai; // ar bus ivedami ranka, ar generuojami atsitiktinai
+        cout << "Jei norite ivesti studento pazymius -  iveskite 1, jei generuoti atsitiktinai - iveskite 2" << endl;
+        cin >> kokiePazymiai;
+
+        if (kokiePazymiai == 1)
+        {
+            pazymiuIvedimas(studentas[i]);
+        }
+        else if (kokiePazymiai == 2)
+        {
+            atsitiktiniaiPazymiai(studentas[i]);
+        }
+        else
+        {
+            return -1;
+        }
+
+        int skaiciavimoBudas;
+        cout << "Pasirinkite, kaip skaiciuoti galutini bala: 1 - naudojant vidurki; 2 - naudojant mediana" << endl;
+        cin >> skaiciavimoBudas;
+
+        if (skaiciavimoBudas == 1) // naudojamas vidurkis
+        {
+            float semestroRez = vidurkis(studentas[i].pazymiai);
+            studentas[i].galutinis = semestroRez * 0.4 + studentas[i].egzaminas * 0.6;
+        }
+        else if (skaiciavimoBudas == 2) // naudojama mediana
+        {
+            float semestroRez = mediana(studentas[i].pazymiai);
+            studentas[i].galutinis = semestroRez * 0.4 + studentas[i].egzaminas * 0.6;
+        }
+        else
+        {
+            return -1;
+        }
+
+    }
+
+    // duomenu isvedimas
+    cout << left << setw(15) << "Vardas" << " | " << setw(20) << "Pavarde" << " | " << "Galutinis (Vid.) / Galutinis(Med.) " << endl;
+    cout << "----------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < studentuSk; i++)
+    {
+        cout << left << setw(15) << studentas[i].vardas << " | " << setw(20) << studentas[i].pavarde << " | " << fixed << setprecision(2) << studentas[i].galutinis << endl;
     }
 
     return 0;
