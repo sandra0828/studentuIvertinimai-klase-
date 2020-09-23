@@ -99,15 +99,17 @@ int main()
 {
     srand(time(0));
 
-    Asmuo studentas[10];
+    vector <Asmuo> studentas;
     int studentuSk;
     cout << "Kiek bus studentu? " << endl;
     cin >> studentuSk;
 
+    
     for (int i = 0; i < studentuSk; i++)
     {
+        Asmuo studentoDuomenys; // laikinas kintamasis vieno studento duomenims saugoti
         cout << "Iveskite studento varda, pavarde: " << endl;
-        cin >> studentas[i].vardas >> studentas[i].pavarde;
+        cin >> studentoDuomenys.vardas >> studentoDuomenys.pavarde;
 
         int kokiePazymiai; // ar bus ivedami ranka, ar generuojami atsitiktinai
         cout << "Jei norite ivesti studento pazymius -  iveskite 1, jei generuoti atsitiktinai - iveskite 2" << endl;
@@ -115,11 +117,11 @@ int main()
 
         if (kokiePazymiai == 1)
         {
-            pazymiuIvedimas(studentas[i]);
+            pazymiuIvedimas(studentoDuomenys);
         }
         else if (kokiePazymiai == 2)
         {
-            atsitiktiniaiPazymiai(studentas[i]);
+            atsitiktiniaiPazymiai(studentoDuomenys);
         }
         else
         {
@@ -132,18 +134,20 @@ int main()
 
         if (skaiciavimoBudas == 1) // naudojamas vidurkis
         {
-            float semestroRez = vidurkis(studentas[i].pazymiai);
-            studentas[i].galutinis = semestroRez * 0.4 + studentas[i].egzaminas * 0.6;
+            float semestroRez = vidurkis(studentoDuomenys.pazymiai);
+            studentoDuomenys.galutinis = semestroRez * 0.4 + studentoDuomenys.egzaminas * 0.6;
         }
         else if (skaiciavimoBudas == 2) // naudojama mediana
         {
-            float semestroRez = mediana(studentas[i].pazymiai);
-            studentas[i].galutinis = semestroRez * 0.4 + studentas[i].egzaminas * 0.6;
+            float semestroRez = mediana(studentoDuomenys.pazymiai);
+            studentoDuomenys.galutinis = semestroRez * 0.4 + studentoDuomenys.egzaminas * 0.6;
         }
         else
         {
             return -1;
         }
+
+        studentas.push_back(studentoDuomenys);
 
     }
 
@@ -152,7 +156,7 @@ int main()
     cout << "----------------------------------------------------------------------------" << endl;
     for (int i = 0; i < studentuSk; i++)
     {
-        cout << left << setw(15) << studentas[i].vardas << " | " << setw(20) << studentas[i].pavarde << " | " << fixed << setprecision(2) << studentas[i].galutinis << endl;
+        cout << left << setw(15) << studentas.at(i).vardas << " | " << setw(20) << studentas.at(i).pavarde << " | " << fixed << setprecision(2) << studentas.at(i).galutinis << endl;
     }
 
     return 0;
