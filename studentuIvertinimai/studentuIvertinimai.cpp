@@ -16,7 +16,6 @@ using std::fixed;
 using std::left;
 using std::vector;
 
-
 struct Asmuo {
     string vardas, pavarde;
     int egzaminas;
@@ -53,24 +52,48 @@ float mediana(vector <int> pazymiai)
 
 void pazymiuIvedimas(Asmuo &stud)
 {
-    cout << "Iveskite egzamino ivertinima: " << endl;
-    cin >> stud.egzaminas;
+    int egzaminas;
+
+    cout << "Iveskite egzamino ivertinima 0-10: " << endl;
+    cin >> egzaminas;
+
+    if (egzaminas >= 0 && egzaminas <= 10)
+    {
+        stud.egzaminas = egzaminas;
+    }
+    else
+    {
+        cout << "Ivestas netinkamas pazymys, egzaminui priskiriamas 0" << endl;
+        stud.egzaminas = 0;
+    }
 
     bool arIvestas = true; // ar ivestas dar vienas pazymys 
     int pazymys;
+    bool arNulis = true;
 
     while (arIvestas == true)
     {
         cout << "Iveskite pazymi arba, jei ivesti visi pazymiai, iveskite -1: (ivedus spauskite enter)" << endl;
         cin >> pazymys;
 
-        if (pazymys == -1)
+        if (pazymys >= 0 && pazymys <= 10)
+        {
+            stud.pazymiai.push_back(pazymys);
+            arNulis = false;
+        }
+        else if (pazymys == -1 && arNulis == true)
+        {
+            cout << "Neivestas nei vienas pazymys" << endl;
+            continue;
+        }
+        else if (pazymys == -1)
         {
             arIvestas = false; // ivestas jau ne pazymys, o ivedimo stabdymo zenklas
         }
         else
         {
-            stud.pazymiai.push_back(pazymys);
+            cout << "Pazymys gali buti 0-10" << endl;
+            continue;
         }
     }
 }
@@ -91,8 +114,7 @@ void atsitiktiniaiPazymiai(Asmuo &stud)
         cout << random << " ";
         stud.pazymiai.push_back(random);
     }
-    cout << endl;
-    
+    cout << endl;  
 }
 
 int main()
@@ -104,7 +126,6 @@ int main()
     cout << "Kiek bus studentu? " << endl;
     cin >> studentuSk;
 
-    
     for (int i = 0; i < studentuSk; i++)
     {
         Asmuo studentoDuomenys; // laikinas kintamasis vieno studento duomenims saugoti
@@ -148,7 +169,6 @@ int main()
         }
 
         studentas.push_back(studentoDuomenys);
-
     }
 
     // duomenu isvedimas
