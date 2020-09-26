@@ -141,6 +141,8 @@ void atsitiktiniaiPazymiai(Asmuo &stud)
     cout << "Kiek sugeneruoti pazymiu? : " << endl;
     cin >> kiek;
 
+    if (kiek < 1) kiek = 1;
+
     cout << "Semestro pazymiai: ";
     for (int i = 0; i < kiek; i++)
     {
