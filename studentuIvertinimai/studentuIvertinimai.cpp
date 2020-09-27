@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <fstream>
+#include <sstream>
 using std::cout;
 using std::cin;
 using std::string;
@@ -15,6 +17,9 @@ using std::setprecision;
 using std::fixed;
 using std::left;
 using std::vector;
+using std::ifstream;
+using std::getline;
+using std::stringstream;
 
 struct Asmuo {
     string vardas, pavarde;
@@ -167,7 +172,6 @@ float galutinisPazymys(Asmuo stud, string skaiciavimoBudas)
     }
     else
     {
-        cout << "Nepasirinktas skaiciavimo budas, naudojamas vidurkis " << endl;
         semestroRez = vidurkis(stud.pazymiai);
     }
 
@@ -210,13 +214,118 @@ void duomenuIvedimas(vector <Asmuo>& stud)
     }
 }
 
+void duomenuNuskaitymas(vector <Asmuo>& stud)
+{
+
+    // is pradziu suskaiciuojama, kiek bus is viso kintamuju
+    ifstream fd("kursiokai.txt");
+
+    if (fd.fail()) {
+        cout << "Failas nerastas" << endl;
+    }
+    else
+    {
+        string input;
+        getline(fd, input);
+
+        stringstream ss(input);
+        string zodis;
+        int kiekZodziu = 0;
+
+        while (ss >> zodis) {
+            ++kiekZodziu;
+        }
+
+        // nuskaitomi duomenys
+        while (!fd.eof())
+        {
+            Asmuo studentoDuomenys;
+
+            fd >> studentoDuomenys.vardas >> studentoDuomenys.pavarde;
+            string pazymys;
+
+            // pazymiu skaicius randamas is visu stulpeliu skaiciaus atimant vardo, pavardes ir egzamino stulpelius
+            for (int i = 0; i < kiekZodziu - 3; i++) 
+            {
+                fd >> pazymys;
+                int paz;
+                if (arSkaicius(pazymys) == true)
+                {
+                    paz = std::stoi(pazymys);
+                }
+                else
+                {
+                    paz = 0;
+                }
+                studentoDuomenys.pazymiai.push_back(paz);
+            }
+
+            string egzaminas;
+            fd >> egzaminas;
+            int egz;
+
+            if (arSkaicius(egzaminas) == true)
+            {
+                egz = std::stoi(egzaminas);
+            }
+            else
+            {
+                egz = 0;
+            }
+
+            studentoDuomenys.egzaminas = egz;
+            stud.push_back(studentoDuomenys);
+        }
+    }
+}
+
+bool palyginimas(const Asmuo& a, const Asmuo& b)
+{
+    if (a.vardas != b.vardas)
+    {
+        return a.vardas < b.vardas;
+    }
+    if (a.vardas == b.vardas)
+    {
+        return a.pavarde < b.pavarde;
+    }
+}
+
+void duomenuIsvedimas(vector <Asmuo> studentai)
+{
+    sort(studentai.begin(), studentai.end(), palyginimas);
+
+    cout << left << setw(15) << "Vardas" << " | " << setw(20) << "Pavarde" << " | " << "Galutinis (Vid.) / Galutinis(Med.) " << endl;
+    cout << "----------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < studentai.size(); i++)
+    {
+        cout << left << setw(15) << studentai.at(i).vardas << " | " << setw(20) << studentai.at(i).pavarde << " | " << fixed << setprecision(2) << studentai.at(i).galutinis << endl;
+    }
+}
+
 int main()
 {
     srand(time(0));
 
     vector <Asmuo> studentai;
 
-    duomenuIvedimas(studentai);
+    int kokieDuomenys;
+    cout << "Jei norite ivesti duomenis, spauskite 1; jei norite nuskaityti duomenis, spauskite 2" << endl;
+    cin >> kokieDuomenys;
+
+    if (kokieDuomenys == 1)
+    {
+        duomenuIvedimas(studentai);
+    }
+    else if (kokieDuomenys == 2)
+    {
+        duomenuNuskaitymas(studentai);
+    }
+    else
+    {
+        cout << "Nepasirinktas duomenu nuskaitymo budas" << endl;
+        return -1;
+    }
 
     if (studentai.size() > 0)
     {
@@ -224,18 +333,17 @@ int main()
         cout << "Pasirinkite, kaip skaiciuoti galutini bala: 'a' - naudojant vidurki; 'b' - naudojant mediana" << endl;
         cin >> skaiciavimoBudas;
 
+        if (skaiciavimoBudas != "a" && skaiciavimoBudas != "b")
+        {
+            cout << "Nepasirinktas skaiciavimo budas, naudojamas vidurkis " << endl;
+        }
+
         for (int i = 0; i < studentai.size(); i++)
         {
             studentai.at(i).galutinis = galutinisPazymys(studentai.at(i), skaiciavimoBudas);
         }
 
-        // duomenu isvedimas
-        cout << left << setw(15) << "Vardas" << " | " << setw(20) << "Pavarde" << " | " << "Galutinis (Vid.) / Galutinis(Med.) " << endl;
-        cout << "----------------------------------------------------------------------------" << endl;
-        for (int i = 0; i < studentai.size(); i++)
-        {
-            cout << left << setw(15) << studentai.at(i).vardas << " | " << setw(20) << studentai.at(i).pavarde << " | " << fixed << setprecision(2) << studentai.at(i).galutinis << endl;
-        }
+        duomenuIsvedimas(studentai);
     }
     else
     {
