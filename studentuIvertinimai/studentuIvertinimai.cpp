@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <fstream>
+#include <sstream>
 using std::cout;
 using std::cin;
 using std::string;
@@ -15,6 +17,9 @@ using std::setprecision;
 using std::fixed;
 using std::left;
 using std::vector;
+using std::ifstream;
+using std::getline;
+using std::stringstream;
 
 struct Asmuo {
     string vardas, pavarde;
@@ -210,13 +215,63 @@ void duomenuIvedimas(vector <Asmuo>& stud)
     }
 }
 
+void duomenuNuskaitymas(vector <Asmuo>& stud)
+{
+    // is pradziu suskaiciuojama, kiek bus is viso kintamuju
+    ifstream fd("kursiokai.txt");
+    string input;
+    getline(fd, input);
+
+    stringstream ss(input);
+    string zodis;
+    int kiekZodziu = 0;
+
+    while (ss >> zodis) {
+        ++kiekZodziu;
+    }
+
+    // nuskaitomi duomenys
+    while (!fd.eof())
+    {
+        Asmuo studentoDuomenys;
+
+        fd >> studentoDuomenys.vardas >> studentoDuomenys.pavarde;
+        int pazymys;
+
+        for (int i = 0; i < kiekZodziu - 3; i++)
+        {
+            fd >> pazymys;
+            studentoDuomenys.pazymiai.push_back(pazymys);
+        }
+
+        fd >> studentoDuomenys.egzaminas;
+        stud.push_back(studentoDuomenys);
+    }
+}
+
 int main()
 {
     srand(time(0));
 
     vector <Asmuo> studentai;
 
-    duomenuIvedimas(studentai);
+    int kokieDuomenys;
+    cout << "Jei norite ivesti duomenis, spauskite 1; jei norite nuskaityti duomenis, spauskite 2" << endl;
+    cin >> kokieDuomenys;
+
+    if (kokieDuomenys == 1)
+    {
+        duomenuIvedimas(studentai);
+    }
+    else if (kokieDuomenys == 2)
+    {
+        duomenuNuskaitymas(studentai);
+    }
+    else
+    {
+        cout << "Nepasirinktas duomenu nuskaitymo budas" << endl;
+        return -1;
+    }
 
     if (studentai.size() > 0)
     {
