@@ -1,13 +1,17 @@
 // studentuIvertinimai.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
+/*#include <iostream>
 #include <iomanip>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <fstream>
-#include <sstream>
+#include <sstream> */
+
+#include "Asmuo.h"
+#include "duomenuNuskaitymas.h"
+
 using std::cout;
 using std::cin;
 using std::string;
@@ -21,12 +25,7 @@ using std::ifstream;
 using std::getline;
 using std::stringstream;
 
-struct Asmuo {
-    string vardas, pavarde;
-    int egzaminas;
-    float galutinis = 0;
-    vector<int> pazymiai;
-};
+
 
 float vidurkis(vector <int> pazymiai)
 {
@@ -53,16 +52,6 @@ float mediana(vector <int> pazymiai)
     {
         return (float)pazymiai[dydis / 2];
     }
-}
-
-bool arSkaicius(string s)
-{
-    for (int i = 0; i < s.length(); i++)
-        if (isdigit(s[i]) == false)
-        {
-            return false;
-        }
-    return true;
 }
 
 void pazymiuIvedimas(Asmuo &stud)
@@ -214,70 +203,7 @@ void duomenuIvedimas(vector <Asmuo>& stud)
     }
 }
 
-void duomenuNuskaitymas(vector <Asmuo>& stud)
-{
 
-    // is pradziu suskaiciuojama, kiek bus is viso kintamuju
-    ifstream fd("kursiokai.txt");
-
-    if (fd.fail()) {
-        cout << "Failas nerastas" << endl;
-    }
-    else
-    {
-        string input;
-        getline(fd, input);
-
-        stringstream ss(input);
-        string zodis;
-        int kiekZodziu = 0;
-
-        while (ss >> zodis) {
-            ++kiekZodziu;
-        }
-
-        // nuskaitomi duomenys
-        while (!fd.eof())
-        {
-            Asmuo studentoDuomenys;
-
-            fd >> studentoDuomenys.vardas >> studentoDuomenys.pavarde;
-            string pazymys;
-
-            // pazymiu skaicius randamas is visu stulpeliu skaiciaus atimant vardo, pavardes ir egzamino stulpelius
-            for (int i = 0; i < kiekZodziu - 3; i++) 
-            {
-                fd >> pazymys;
-                int paz;
-                if (arSkaicius(pazymys) == true)
-                {
-                    paz = std::stoi(pazymys);
-                }
-                else
-                {
-                    paz = 0;
-                }
-                studentoDuomenys.pazymiai.push_back(paz);
-            }
-
-            string egzaminas;
-            fd >> egzaminas;
-            int egz;
-
-            if (arSkaicius(egzaminas) == true)
-            {
-                egz = std::stoi(egzaminas);
-            }
-            else
-            {
-                egz = 0;
-            }
-
-            studentoDuomenys.egzaminas = egz;
-            stud.push_back(studentoDuomenys);
-        }
-    }
-}
 
 bool palyginimas(const Asmuo& a, const Asmuo& b)
 {

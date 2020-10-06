@@ -18,5 +18,16 @@
     <ClCompile Include="studentuIvertinimai.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="duomenuNuskaitymas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Asmuo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="duomenuNuskaitymas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
