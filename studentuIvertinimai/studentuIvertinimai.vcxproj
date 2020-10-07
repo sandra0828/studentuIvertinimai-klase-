@@ -139,12 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="duomenuIsvedimas.cpp" />
+    <ClCompile Include="duomenuIvedimas.cpp" />
     <ClCompile Include="duomenuNuskaitymas.cpp" />
+    <ClCompile Include="galutinisPazymys.cpp" />
+    <ClCompile Include="pagalbine.cpp" />
     <ClCompile Include="studentuIvertinimai.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asmuo.h" />
+    <ClInclude Include="duomenuIsvedimas.h" />
+    <ClInclude Include="duomenuIvedimas.h" />
     <ClInclude Include="duomenuNuskaitymas.h" />
+    <ClInclude Include="galutinisPazymys.h" />
+    <ClInclude Include="pagalbine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

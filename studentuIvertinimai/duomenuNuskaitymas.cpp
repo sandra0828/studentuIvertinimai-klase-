@@ -1,16 +1,5 @@
 #include "duomenuNuskaitymas.h"
 
-
-bool arSkaicius(string s)
-{
-    for (int i = 0; i < s.length(); i++)
-        if (isdigit(s[i]) == false)
-        {
-            return false;
-        }
-    return true;
-}
-
 void duomenuNuskaitymas(vector <Asmuo>& stud)
 {
     // is pradziu suskaiciuojama, kiek bus is viso kintamuju
