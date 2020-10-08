@@ -11,3 +11,4 @@ using std::vector;
 
 void pazymiuIvedimas(Asmuo& stud);
 void duomenuIvedimas(vector <Asmuo>& stud);
+void pazymioTikrinimas(string& pazymys);

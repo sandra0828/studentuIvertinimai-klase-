@@ -7,27 +7,9 @@ void pazymiuIvedimas(Asmuo& stud)
     cout << "Iveskite egzamino ivertinima 0-10: " << endl;
     cin >> egzaminas;
 
-    int skaicius = arSkaicius(egzaminas);
-
-    if (skaicius == true)
-    {
-        int egz = std::stoi(egzaminas);
-
-        if (egz >= 0 && egz <= 10)
-        {
-            stud.egzaminas = egz;
-        }
-        else
-        {
-            cout << "Ivestas netinkamas pazymys, egzaminui priskiriamas 0" << endl;
-            stud.egzaminas = 0;
-        }
-    }
-    else
-    {
-        cout << "Neivestas pazymys, egzaminui priskiriamas 0" << endl;
-        stud.egzaminas = 0;
-    }
+    pazymioTikrinimas(egzaminas);
+    int egz = std::stoi(egzaminas);
+    stud.egzaminas = egz;
 
 
     bool arIvestas = true; // ar ivestas dar vienas pazymys 
@@ -36,38 +18,24 @@ void pazymiuIvedimas(Asmuo& stud)
 
     while (arIvestas == true)
     {
-        cout << "Iveskite pazymi arba, jei ivesti visi pazymiai, iveskite -1: (ivedus spauskite enter)" << endl;
+        cout << "Iveskite semestro pazymi arba, jei ivesti visi pazymiai, iveskite -1: (ivedus spauskite enter)" << endl;
         cin >> pazymys;
 
-        int skaicius = arSkaicius(pazymys);
-
-        if ((skaicius == true) || (pazymys == "-1"))
+        if (pazymys == "-1" && arNulis == true)
         {
-            int paz = std::stoi(pazymys);
-            if (paz >= 0 && paz <= 10)
-            {
-                stud.pazymiai.push_back(paz);
-                arNulis = false;
-            }
-            else if (paz == -1 && arNulis == true)
-            {
-                cout << "Neivestas nei vienas pazymys" << endl;
-                continue;
-            }
-            else if (paz == -1)
-            {
-                arIvestas = false; // ivestas jau ne pazymys, o ivedimo stabdymo zenklas
-            }
-            else
-            {
-                cout << "Pazymys gali buti 0-10" << endl;
-                continue;
-            }
+            cout << "Neivestas nei vienas pazymys" << endl;
+            continue;
+        }
+        else if (pazymys == "-1" && arNulis == false)
+        {
+            arIvestas = false;
         }
         else
         {
-            cout << "Klaida, ivestas simbolis" << endl;
-            continue;
+            arNulis = false;
+            pazymioTikrinimas(pazymys);
+            int paz = std::stoi(pazymys);
+            stud.pazymiai.push_back(paz);
         }
     }
 }
@@ -104,4 +72,38 @@ void duomenuIvedimas(vector <Asmuo>& stud)
 
         stud.push_back(studentoDuomenys);
     }
+}
+
+void pazymioTikrinimas(string &pazymys)
+{
+    bool tinkamas;
+    do {
+        tinkamas = true;
+        try {
+            if (arSkaicius(pazymys) == false)
+            {
+                tinkamas = false;
+                throw std::runtime_error("Ivestas netinkamas simbolis \n");
+            }
+            if (arSkaicius(pazymys) == true)
+            {
+                int paz = std::stoi(pazymys);
+                if (paz <= 0 || paz > 10)
+                {
+                    tinkamas = false;
+                    throw std::runtime_error("Ivestas netinkamas pazymys (turi buti 0-10) \n");
+                }
+            }
+        }
+        catch (const std::runtime_error& e)
+        {
+            cout << e.what();
+            cin.clear();
+            cin.ignore(256, '\n');
+            cout << "Iveskite pazymi is naujo" << endl;
+            cin >> pazymys;
+
+        }
+
+    } while (tinkamas == false);
 }
