@@ -142,6 +142,7 @@
     <ClCompile Include="duomenuIsvedimas.cpp" />
     <ClCompile Include="duomenuIvedimas.cpp" />
     <ClCompile Include="duomenuNuskaitymas.cpp" />
+    <ClCompile Include="duomenuPasirinkimas.cpp" />
     <ClCompile Include="galutinisPazymys.cpp" />
     <ClCompile Include="pagalbine.cpp" />
     <ClCompile Include="studentuIvertinimai.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="duomenuIsvedimas.h" />
     <ClInclude Include="duomenuIvedimas.h" />
     <ClInclude Include="duomenuNuskaitymas.h" />
+    <ClInclude Include="duomenuPasirinkimas.h" />
     <ClInclude Include="galutinisPazymys.h" />
     <ClInclude Include="pagalbine.h" />
   </ItemGroup>

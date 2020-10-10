@@ -6,6 +6,7 @@
 #include "duomenuIvedimas.h"
 #include "galutinisPazymys.h"
 #include "duomenuIsvedimas.h"
+#include "duomenuPasirinkimas.h"
 
 using std::cout;
 using std::cin;
@@ -13,30 +14,12 @@ using std::string;
 using std::endl;
 using std::vector;
 
-
 int main()
 {
     srand(time(0));
 
     vector <Asmuo> studentai;
-
-    int kokieDuomenys;
-    cout << "Jei norite ivesti duomenis, spauskite 1; jei norite nuskaityti duomenis, spauskite 2" << endl;
-    cin >> kokieDuomenys;
-
-    if (kokieDuomenys == 1)
-    {
-        duomenuIvedimas(studentai);
-    }
-    else if (kokieDuomenys == 2)
-    {
-        duomenuNuskaitymas(studentai);
-    }
-    else
-    {
-        cout << "Nepasirinktas duomenu nuskaitymo budas" << endl;
-        return -1;
-    }
+    duomenuPasirinkimas(studentai);
 
     if (studentai.size() > 0)
     {

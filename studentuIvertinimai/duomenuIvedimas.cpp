@@ -88,7 +88,7 @@ void pazymioTikrinimas(string &pazymys)
             if (arSkaicius(pazymys) == true)
             {
                 int paz = std::stoi(pazymys);
-                if (paz <= 0 || paz > 10)
+                if (paz < 0 || paz > 10)
                 {
                     tinkamas = false;
                     throw std::runtime_error("Ivestas netinkamas pazymys (turi buti 0-10) \n");
