@@ -12,5 +12,6 @@ using std::vector;
 using std::ifstream;
 using std::getline;
 using std::stringstream;
+using std::ws;
 
 void duomenuNuskaitymas(vector <Asmuo>& stud);

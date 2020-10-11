@@ -3,7 +3,7 @@
 void duomenuNuskaitymas(vector <Asmuo>& stud)
 {
     // is pradziu suskaiciuojama, kiek bus is viso kintamuju
-    ifstream fd("kursiokai.txt");
+    ifstream fd("kursiokai1000.txt");
 
     try
     {
@@ -26,19 +26,20 @@ void duomenuNuskaitymas(vector <Asmuo>& stud)
     while (ss >> zodis) {
         ++kiekZodziu;
     }
+    cout << kiekZodziu << endl;
 
     // nuskaitomi duomenys
     while (!fd.eof())
     {
         Asmuo studentoDuomenys;
 
-        fd >> studentoDuomenys.vardas >> studentoDuomenys.pavarde;
+        fd >> studentoDuomenys.vardas >> ws >> studentoDuomenys.pavarde >> ws;
         string pazymys;
 
         // pazymiu skaicius randamas is visu stulpeliu skaiciaus atimant vardo, pavardes ir egzamino stulpelius
         for (int i = 0; i < kiekZodziu - 3; i++)
         {
-            fd >> pazymys;
+            fd >> pazymys >> ws;
             int paz;
             if (arSkaicius(pazymys) == true)
             {
@@ -52,7 +53,8 @@ void duomenuNuskaitymas(vector <Asmuo>& stud)
         }
 
         string egzaminas;
-        fd >> egzaminas;
+        fd >> egzaminas >> ws;
+
         int egz;
 
         if (arSkaicius(egzaminas) == true)
@@ -67,4 +69,5 @@ void duomenuNuskaitymas(vector <Asmuo>& stud)
         studentoDuomenys.egzaminas = egz;
         stud.push_back(studentoDuomenys);
     }
+    fd.close();
 }

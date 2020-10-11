@@ -7,6 +7,7 @@
 #include "galutinisPazymys.h"
 #include "duomenuIsvedimas.h"
 #include "duomenuPasirinkimas.h"
+#include "failoSukurimas.h"
 
 using std::cout;
 using std::cin;
@@ -19,6 +20,15 @@ int main()
     srand(time(0));
 
     vector <Asmuo> studentai;
+
+
+    //naujasFailas(1000, 5);
+    //naujasFailas(10000, 5);
+    //naujasFailas(100000, 5);
+    //naujasFailas(1000000, 5);
+    //naujasFailas(10000000, 5);
+
+
     duomenuPasirinkimas(studentai);
 
     if (studentai.size() > 0)
@@ -30,7 +40,7 @@ int main()
     {
         cout << "Nera duomenu" << endl;
     }
-
+    
     return 0;
 }
 
