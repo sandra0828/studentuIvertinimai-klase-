@@ -1,9 +1,10 @@
 #include "duomenuNuskaitymas.h"
 
-void duomenuNuskaitymas(vector <Asmuo>& stud)
+void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas)
 {
     // is pradziu suskaiciuojama, kiek bus is viso kintamuju
-    ifstream fd("kursiokai1000.txt");
+    auto start = std::chrono::high_resolution_clock::now();
+    ifstream fd(failoVardas);
 
     try
     {
@@ -26,7 +27,6 @@ void duomenuNuskaitymas(vector <Asmuo>& stud)
     while (ss >> zodis) {
         ++kiekZodziu;
     }
-    cout << kiekZodziu << endl;
 
     // nuskaitomi duomenys
     while (!fd.eof())
@@ -70,4 +70,7 @@ void duomenuNuskaitymas(vector <Asmuo>& stud)
         stud.push_back(studentoDuomenys);
     }
     fd.close();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end - start;
+    std::cout << "Failo nuskaitymas uztruko: " << diff.count() << " s\n";
 }

@@ -1,8 +1,9 @@
 #pragma once
 
 #include <fstream>
-#include "Asmuo.h";
+#include "Asmuo.h"
 #include <algorithm>
+#include <chrono>
 
 using std::endl;
 using std::setw;
