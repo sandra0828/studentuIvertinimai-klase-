@@ -25,23 +25,35 @@ int main()
     vector <Asmuo> galvociai;
     vector <Asmuo> vargsiukai;
 
-
-    //naujasFailas(1000, 5);
+    cout << "Failas su 1000 irasu: \n";
+    naujasFailas(1000, 5);
     duomenuNuskaitymas(studentai, "kursiokai1000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai);
-    naujiSarasai(galvociai, vargsiukai, "1000");
+    naujiSarasai(galvociai, vargsiukai, "1000"); 
 
-    //naujasFailas(10000, 5);
-    //duomenuNuskaitymas(studentai, "kursiokai10000.txt");
+    cout << "Failas su 10000 irasu: \n";
+    naujasFailas(10000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai10000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "10000"); 
 
-    //naujasFailas(100000, 5);
-    //duomenuNuskaitymas(studentai, "kursiokai100000.txt");
+    cout << "Failas su 1000000 irasu: \n";
+    naujasFailas(100000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai100000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "100000"); 
 
-    //naujasFailas(1000000, 5);
-    //duomenuNuskaitymas(studentai, "kursiokai1000000.txt");
+    cout << "Failas su 10000000 irasu: \n";
+    naujasFailas(1000000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai1000000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "1000000");
 
-    //naujasFailas(10000000, 5);
-    //duomenuNuskaitymas(studentai, "kursiokai10000000.txt");
+    cout << "Failas su 100000000 irasu: \n";
+    naujasFailas(10000000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai10000000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "10000000");
 
 
     /*duomenuPasirinkimas(studentai);

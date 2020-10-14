@@ -5,22 +5,24 @@ void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vec
     galutinisPazymys(studentai, "a");
 
     auto start = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < studentai.size(); i++)
+    int n = studentai.size();
+    for (int i = n-1; i >= 0; i--)
     {
-        if (studentai.at(i).galutinis >= 5)
-        {
-            galvociai.push_back(studentai.at(i));
-        }
-        else
-        {
-            vargsiukai.push_back(studentai.at(i));
-        }
+      if (studentai.at(i).galutinis >= 5)
+      {
+          galvociai.push_back(studentai.at(i));
+          studentai.pop_back();
+      }
+      else
+      {
+          vargsiukai.push_back(studentai.at(i));
+          studentai.pop_back();
+      }
     }
-    studentai.clear();
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;
-    std::cout << "Studentu padalinimas i du sarasus, pasalinant pradini vektoriu uztruko: " << diff.count() << " s\n";
+    std::cout << "Studentu padalinimas i du sarasus, pasalinant pradini vektoriu, uztruko: " << diff.count() << " s\n";
 }
 
 void naujiSarasai(vector <Asmuo> galvociai, vector <Asmuo> vargsiukai, string kiek)
