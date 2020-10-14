@@ -29,31 +29,36 @@ int main()
     naujasFailas(1000, 5);
     duomenuNuskaitymas(studentai, "kursiokai1000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai);
-    naujiSarasai(galvociai, vargsiukai, "1000"); 
+    naujiSarasai(galvociai, vargsiukai, "1000");
+    cout << endl;
 
     cout << "Failas su 10000 irasu: \n";
     naujasFailas(10000, 5);
     duomenuNuskaitymas(studentai, "kursiokai10000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai);
-    naujiSarasai(galvociai, vargsiukai, "10000"); 
+    naujiSarasai(galvociai, vargsiukai, "10000");
+    cout << endl;
 
     cout << "Failas su 1000000 irasu: \n";
     naujasFailas(100000, 5);
     duomenuNuskaitymas(studentai, "kursiokai100000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai);
-    naujiSarasai(galvociai, vargsiukai, "100000"); 
+    naujiSarasai(galvociai, vargsiukai, "100000");
+    cout << endl;
 
     cout << "Failas su 10000000 irasu: \n";
     naujasFailas(1000000, 5);
     duomenuNuskaitymas(studentai, "kursiokai1000000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai);
     naujiSarasai(galvociai, vargsiukai, "1000000");
+    cout << endl;
 
     cout << "Failas su 100000000 irasu: \n";
     naujasFailas(10000000, 5);
     duomenuNuskaitymas(studentai, "kursiokai10000000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai);
     naujiSarasai(galvociai, vargsiukai, "10000000");
+    cout << endl;
 
 
     /*duomenuPasirinkimas(studentai);
