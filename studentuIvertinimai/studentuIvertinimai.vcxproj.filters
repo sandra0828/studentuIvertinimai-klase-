@@ -36,6 +36,12 @@
     <ClCompile Include="duomenuPasirinkimas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="failoSukurimas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="studentuSarasoDalinimas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asmuo.h">
@@ -57,6 +63,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="duomenuPasirinkimas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="failoSukurimas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="studentuSarasoDalinimas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

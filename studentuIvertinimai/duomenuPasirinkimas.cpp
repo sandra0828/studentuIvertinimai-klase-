@@ -39,6 +39,6 @@ void duomenuPasirinkimas(vector <Asmuo>& studentai)
     }
     else
     {
-        duomenuNuskaitymas(studentai);
+        duomenuNuskaitymas(studentai, "kursiokai.txt");
     }
 }

@@ -7,6 +7,8 @@
 #include "galutinisPazymys.h"
 #include "duomenuIsvedimas.h"
 #include "duomenuPasirinkimas.h"
+#include "failoSukurimas.h"
+#include "studentuSarasoDalinimas.h"
 
 using std::cout;
 using std::cin;
@@ -14,23 +16,66 @@ using std::string;
 using std::endl;
 using std::vector;
 
+
 int main()
 {
     srand(time(0));
 
     vector <Asmuo> studentai;
-    duomenuPasirinkimas(studentai);
+    vector <Asmuo> galvociai;
+    vector <Asmuo> vargsiukai;
 
+    cout << "Failas su 1000 irasu: \n";
+    naujasFailas(1000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai1000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "1000");
+    cout << endl;
+
+    cout << "Failas su 10000 irasu: \n";
+    naujasFailas(10000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai10000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "10000");
+    cout << endl;
+
+    cout << "Failas su 1000000 irasu: \n";
+    naujasFailas(100000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai100000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "100000");
+    cout << endl;
+
+    cout << "Failas su 10000000 irasu: \n";
+    naujasFailas(1000000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai1000000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "1000000");
+    cout << endl;
+
+    cout << "Failas su 100000000 irasu: \n";
+    naujasFailas(10000000, 5);
+    duomenuNuskaitymas(studentai, "kursiokai10000000.txt");
+    studentuRusiavimas(studentai, galvociai, vargsiukai);
+    naujiSarasai(galvociai, vargsiukai, "10000000");
+    cout << endl;
+
+
+    /*duomenuPasirinkimas(studentai);
     if (studentai.size() > 0)
     {
-        galutinisPazymys(studentai);
+        string skaiciavimoBudas;
+        cout << "Pasirinkite, kaip skaiciuoti galutini bala: 'a' - naudojant vidurki; 'b' - naudojant mediana" << endl;
+        cin >> skaiciavimoBudas;
+
+        galutinisPazymys(studentai, skaiciavimoBudas);
         duomenuIsvedimas(studentai);
     }
     else
     {
         cout << "Nera duomenu" << endl;
-    }
-
+    } */
+    
     return 0;
 }
 

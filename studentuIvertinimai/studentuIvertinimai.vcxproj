@@ -143,9 +143,11 @@
     <ClCompile Include="duomenuIvedimas.cpp" />
     <ClCompile Include="duomenuNuskaitymas.cpp" />
     <ClCompile Include="duomenuPasirinkimas.cpp" />
+    <ClCompile Include="failoSukurimas.cpp" />
     <ClCompile Include="galutinisPazymys.cpp" />
     <ClCompile Include="pagalbine.cpp" />
     <ClCompile Include="studentuIvertinimai.cpp" />
+    <ClCompile Include="studentuSarasoDalinimas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asmuo.h" />
@@ -153,8 +155,10 @@
     <ClInclude Include="duomenuIvedimas.h" />
     <ClInclude Include="duomenuNuskaitymas.h" />
     <ClInclude Include="duomenuPasirinkimas.h" />
+    <ClInclude Include="failoSukurimas.h" />
     <ClInclude Include="galutinisPazymys.h" />
     <ClInclude Include="pagalbine.h" />
+    <ClInclude Include="studentuSarasoDalinimas.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

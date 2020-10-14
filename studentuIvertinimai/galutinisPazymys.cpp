@@ -28,11 +28,9 @@ float mediana(vector <int> pazymiai)
 }
 
 
-void galutinisPazymys(vector <Asmuo> &studentai)
+void galutinisPazymys(vector <Asmuo> &studentai, string skaiciavimoBudas)
 {
-    string skaiciavimoBudas;
-    cout << "Pasirinkite, kaip skaiciuoti galutini bala: 'a' - naudojant vidurki; 'b' - naudojant mediana" << endl;
-    cin >> skaiciavimoBudas;
+
 
     if (skaiciavimoBudas != "a" && skaiciavimoBudas != "b")
     {

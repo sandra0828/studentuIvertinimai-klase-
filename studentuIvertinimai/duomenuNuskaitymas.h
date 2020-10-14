@@ -4,6 +4,7 @@
 #include "pagalbine.h"
 #include <fstream>
 #include <sstream>
+#include <chrono>
 
 using std::cout;
 using std::string;
@@ -12,5 +13,6 @@ using std::vector;
 using std::ifstream;
 using std::getline;
 using std::stringstream;
+using std::ws;
 
-void duomenuNuskaitymas(vector <Asmuo>& stud);
+void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas);
