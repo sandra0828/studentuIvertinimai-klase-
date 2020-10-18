@@ -13,5 +13,5 @@ using std::fixed;
 using std::left;
 
 
-void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai);
+void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas);
 void naujiSarasai(vector <Asmuo> galvociai, vector <Asmuo> vargsiukai, string kiek);

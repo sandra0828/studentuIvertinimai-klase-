@@ -20,20 +20,23 @@ void naujasFailas(int n, int kiekPazymiu)
 	for (int i = 0; i < n; i++)
 	{
 		Asmuo asmuo;
-		int random = rand() % n + 1;
-		string skaicius = to_string(random);
+		string skaicius = to_string(i+1);
 
 		asmuo.vardas = "Vardas" + skaicius;
 		asmuo.pavarde = "Pavarde" + skaicius;
 		fr << left << setw(15) << asmuo.vardas << setw(20) << asmuo.pavarde;
 
+		using hrClock = std::chrono::high_resolution_clock;
+		std::mt19937 mt(static_cast<long unsigned int>(hrClock::now().time_since_epoch().count()));
+		std::uniform_int_distribution<int> dist(0, 10);
+
 		for (int j = 0; j < kiekPazymiu; j++)
 		{
-			asmuo.pazymiai.push_back(rand() % 10 + 1);
+			asmuo.pazymiai.push_back(dist(mt));
 			fr << setw(5) << asmuo.pazymiai.at(j);
 		}
 
-		asmuo.egzaminas = rand() % 10 + 1;
+		asmuo.egzaminas = dist(mt);
 		fr << setw(5) << asmuo.egzaminas << endl;
 	}
 
