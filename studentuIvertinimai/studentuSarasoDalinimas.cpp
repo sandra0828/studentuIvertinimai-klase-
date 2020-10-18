@@ -1,8 +1,8 @@
 #include "studentuSarasoDalinimas.h"
 
-void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai)
+void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas)
 {
-    galutinisPazymys(studentai, "a");
+    galutinisPazymys(studentai, skaiciavimoBudas);
 
     auto start = std::chrono::high_resolution_clock::now();
     int n = studentai.size();

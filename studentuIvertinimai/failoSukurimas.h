@@ -4,6 +4,7 @@
 #include "Asmuo.h"
 #include <algorithm>
 #include <chrono>
+#include <random>
 
 using std::endl;
 using std::setw;
