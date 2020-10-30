@@ -1,6 +1,6 @@
 #include "duomenuNuskaitymas.h"
 
-void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas)
+void duomenuNuskaitymas(list <Asmuo>& stud, string failoVardas)
 {
     // is pradziu suskaiciuojama, kiek bus is viso kintamuju
     auto start = std::chrono::high_resolution_clock::now();

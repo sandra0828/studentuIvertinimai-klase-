@@ -40,7 +40,7 @@ void pazymiuIvedimas(Asmuo& stud)
     }
 }
 
-void duomenuIvedimas(vector <Asmuo>& stud)
+void duomenuIvedimas(std::list <Asmuo>& stud)
 {
     int studentuSk;
     cout << "Kiek bus studentu? " << endl;

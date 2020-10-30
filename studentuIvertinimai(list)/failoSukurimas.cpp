@@ -4,8 +4,6 @@ void naujasFailas(int n, int kiekPazymiu)
 {
 	string skaicius = to_string(n);
 
-	auto start = std::chrono::high_resolution_clock::now();
-
 	ofstream fr("kursiokai" + skaicius + ".txt");
 
 	fr << left << setw(15) << "Vardas" << setw(20) << "Pavarde";
@@ -41,7 +39,4 @@ void naujasFailas(int n, int kiekPazymiu)
 	}
 
 	fr.close();
-	auto end = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<double> diff = end - start;
-	std::cout << "Failo sukurimas uztruko: " << diff.count() << " s\n";
 }

@@ -15,21 +15,22 @@ using std::cin;
 using std::string;
 using std::endl;
 using std::vector;
+using std::list;
 
 
 int main()
 {
     srand(time(0));
 
-    vector <Asmuo> studentai;
-    vector <Asmuo> galvociai;
-    vector <Asmuo> vargsiukai;
+    list <Asmuo> studentai;
+    list <Asmuo> galvociai;
+    list <Asmuo> vargsiukai;
 
     string skaiciavimoBudas;
     cout << "Pasirinkite, kaip skaiciuoti galutini bala: 'a' - naudojant vidurki; 'b' - naudojant mediana" << endl;
     cin >> skaiciavimoBudas;
 
-    /*cout << "Failas su 1000 irasu: \n";
+    cout << "Failas su 1000 irasu: \n";
     naujasFailas(1000, 5);
     duomenuNuskaitymas(studentai, "kursiokai1000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas);
@@ -62,7 +63,7 @@ int main()
     duomenuNuskaitymas(studentai, "kursiokai10000000.txt");
     studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas);
     naujiSarasai(galvociai, vargsiukai, "10000000");
-    cout << endl; */
+    cout << endl;
 
     return 0;
 }
