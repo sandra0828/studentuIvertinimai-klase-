@@ -6,18 +6,19 @@ void studentuRusiavimas(list <Asmuo> studentai, list <Asmuo>& galvociai, list <A
 
     auto start = std::chrono::high_resolution_clock::now();
     int n = studentai.size();
-    for (Asmuo &asmuo: studentai)
+
+    for (int i = 0; i < n; i++)
     {
-      if (asmuo.galutinis >= 5)
-      {
-          galvociai.push_front(asmuo);
-      }
-      else
-      {
-          vargsiukai.push_front(asmuo);
-      }
+        if (studentai.front().galutinis >= 5)
+        {
+            galvociai.push_front(studentai.front());
+        }
+        else
+        {
+            vargsiukai.push_front(studentai.front());
+        }
+        studentai.pop_front();
     }
-    studentai.clear();
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;

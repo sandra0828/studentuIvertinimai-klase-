@@ -55,22 +55,4 @@ void galutinisPazymys(list <Asmuo> &studentai, string skaiciavimoBudas)
         asmuo.galutinis = asmuo.galutinis * 0.4 + asmuo.egzaminas * 0.6;
     }
 
-    /*for (int i = 0; i < studentai.size(); i++)
-    {
-        if (skaiciavimoBudas == "a") // naudojamas vidurkis
-        {
-            studentai.at(i).galutinis = vidurkis(studentai.at(i).pazymiai);
-        }
-        else if (skaiciavimoBudas == "b") // naudojama mediana
-        {
-            studentai.at(i).galutinis = mediana(studentai.at(i).pazymiai);
-        }
-        else
-        {
-            studentai.at(i).galutinis = vidurkis(studentai.at(i).pazymiai);
-        }
-
-        studentai.at(i).galutinis = studentai.at(i).galutinis * 0.4 + studentai.at(i).egzaminas * 0.6;
-    }*/
-
 }

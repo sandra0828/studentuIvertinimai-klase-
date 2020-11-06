@@ -67,7 +67,7 @@ void duomenuNuskaitymas(list <Asmuo>& stud, string failoVardas)
         }
 
         studentoDuomenys.egzaminas = egz;
-        stud.push_back(studentoDuomenys);
+        stud.push_front(studentoDuomenys);
     }
     fd.close();
     auto end = std::chrono::high_resolution_clock::now();
