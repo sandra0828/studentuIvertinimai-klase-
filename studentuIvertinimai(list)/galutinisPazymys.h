@@ -8,7 +8,8 @@ using std::cin;
 using std::string;
 using std::endl;
 using std::vector;
+using std::list;
 
 float vidurkis(vector <int> pazymiai);
 float mediana(vector <int> pazymiai);
-void galutinisPazymys(vector <Asmuo> &studentai, string skaiciavimoBudas);
+void galutinisPazymys(list <Asmuo> &studentai, string skaiciavimoBudas);

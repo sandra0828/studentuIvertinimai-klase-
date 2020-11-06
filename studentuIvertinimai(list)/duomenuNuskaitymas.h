@@ -14,5 +14,6 @@ using std::ifstream;
 using std::getline;
 using std::stringstream;
 using std::ws;
+using std::list;
 
-void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas);
+void duomenuNuskaitymas(list <Asmuo>& stud, string failoVardas);

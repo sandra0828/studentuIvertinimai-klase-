@@ -9,4 +9,4 @@ using std::cin;
 using std::vector;
 using std::endl;
 
-void duomenuPasirinkimas(vector <Asmuo>& studentai);
+void duomenuPasirinkimas(std::list <Asmuo>& studentai);
