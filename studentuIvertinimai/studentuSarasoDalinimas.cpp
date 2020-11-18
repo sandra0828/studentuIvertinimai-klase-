@@ -11,14 +11,15 @@ void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vec
       if (studentai.at(i).galutinis >= 5)
       {
           galvociai.push_back(studentai.at(i));
-          studentai.pop_back();
+          //studentai.pop_back();
       }
       else
       {
           vargsiukai.push_back(studentai.at(i));
-          studentai.pop_back();
-      }
+          //studentai.pop_back();
+      } 
     }
+    studentai.clear();
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;

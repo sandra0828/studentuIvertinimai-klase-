@@ -1,8 +1,0 @@
-Vardas	Pavarde		ND1	ND2	ND3	ND4	ND5	Egzaminas
-Vardas1	Pavarde1	8	9	10	a	10	9
-Vardas2	Pavarde2	7	10	8	5	4	6
-Petras	Petraitis	8	9	9	9	9	10
-Jonas	Jonaitis	9	j	10	5	j	9
-Jonas	Aaaaaa		9	8	10	5	7	9
-Jonas	Cccccc		10	9	9	9	9	9
-Jonas	Bbbbbb		6	5	4	7	6	?
