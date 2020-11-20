@@ -6,6 +6,8 @@ void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vec
 
     auto start = std::chrono::high_resolution_clock::now();
     int n = studentai.size();
+
+    /* 1 ir 3 strategija
     for (int i = n-1; i >= 0; i--)
     {
       if (studentai.at(i).galutinis >= 5)
@@ -19,7 +21,19 @@ void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vec
           //studentai.pop_back();
       } 
     }
+    studentai.clear(); */
+
+    sort(studentai.begin(), studentai.end(), pazymiuPalyginimas);
+    int i = 0;
+    while (studentai.at(i).galutinis < 5)
+    {
+        vargsiukai.push_back(studentai.at(i));
+        i++;
+    }
+    studentai.erase(studentai.begin(), studentai.begin() + i);
+    galvociai = studentai;
     studentai.clear();
+
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;

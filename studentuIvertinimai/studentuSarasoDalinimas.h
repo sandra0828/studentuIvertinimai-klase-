@@ -1,6 +1,7 @@
 #pragma once
 #include "Asmuo.h"
 #include "galutinisPazymys.h"
+#include "pagalbine.h"
 #include <vector>
 #include <chrono>
 #include <fstream>

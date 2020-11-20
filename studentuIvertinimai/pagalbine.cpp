@@ -22,6 +22,11 @@ bool palyginimas(const Asmuo& a, const Asmuo& b)
     }
 }
 
+bool pazymiuPalyginimas(const Asmuo& a, const Asmuo& b)
+{
+        return a.galutinis < b.galutinis; 
+}
+
 void atsitiktiniaiPazymiai(Asmuo& stud)
 {
     stud.egzaminas = rand() % 10 + 1;
