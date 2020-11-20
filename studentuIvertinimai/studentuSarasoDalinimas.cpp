@@ -1,39 +1,56 @@
 #include "studentuSarasoDalinimas.h"
 
-void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas)
+void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas, string strategija)
 {
     galutinisPazymys(studentai, skaiciavimoBudas);
 
     auto start = std::chrono::high_resolution_clock::now();
     int n = studentai.size();
 
-    /* 1 ir 3 strategija
-    for (int i = n-1; i >= 0; i--)
+    if (strategija == "1")
     {
-      if (studentai.at(i).galutinis >= 5)
-      {
-          galvociai.push_back(studentai.at(i));
-          //studentai.pop_back();
-      }
-      else
-      {
-          vargsiukai.push_back(studentai.at(i));
-          //studentai.pop_back();
-      } 
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (studentai.at(i).galutinis >= 5)
+            {
+                galvociai.push_back(studentai.at(i));
+            }
+            else
+            {
+                vargsiukai.push_back(studentai.at(i));
+            }
+        }
+        studentai.clear();
     }
-    studentai.clear(); */
-
-    sort(studentai.begin(), studentai.end(), pazymiuPalyginimas);
-    int i = 0;
-    while (studentai.at(i).galutinis < 5)
+    else if (strategija == "3")
     {
-        vargsiukai.push_back(studentai.at(i));
-        i++;
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (studentai.at(i).galutinis >= 5)
+            {
+                galvociai.push_back(studentai.at(i));
+                studentai.pop_back();
+            }
+            else
+            {
+                vargsiukai.push_back(studentai.at(i));
+                studentai.pop_back();
+            }
+        }
     }
-    studentai.erase(studentai.begin(), studentai.begin() + i);
-    galvociai = studentai;
-    studentai.clear();
-
+    else
+    {
+        sort(studentai.begin(), studentai.end(), pazymiuPalyginimas);
+        int i = 0;
+        while (studentai.at(i).galutinis < 5)
+        {
+            vargsiukai.push_back(studentai.at(i));
+            i++;
+        }
+        studentai.erase(studentai.begin(), studentai.begin() + i);
+        galvociai = studentai;
+        studentai.clear();
+    }
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;
