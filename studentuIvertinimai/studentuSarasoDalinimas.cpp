@@ -1,6 +1,6 @@
 #include "studentuSarasoDalinimas.h"
 
-void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas, string strategija)
+void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas, string strategija)
 {
     galutinisPazymys(studentai, skaiciavimoBudas);
 
@@ -57,7 +57,7 @@ void studentuRusiavimas(vector <Asmuo> studentai, vector <Asmuo>& galvociai, vec
     std::cout << "Studentu padalinimas i du sarasus, pasalinant pradini vektoriu, uztruko: " << diff.count() << " s\n";
 }
 
-void naujiSarasai(vector <Asmuo> galvociai, vector <Asmuo> vargsiukai, string kiek)
+void naujiSarasai(vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string kiek)
 {
     auto start = std::chrono::high_resolution_clock::now();
     ofstream fr1("Galvociai" + kiek + ".txt");
