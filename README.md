@@ -9,7 +9,7 @@ Programos veikimo spartos analizė, lyginant vektorių, sąrašą bei optimizuot
 |----------------------  |---------------------|------------------|----------------|
 |Sąrašo dalinimas 1      |0.0004832 |0.0006671 |0.0004425|
 |Sąrašo dalinimas 2      |0.0007415|0.0001413 |0.0002197|
-|Sąrašo dalinimas 3      |0.0005793 |0.0002513 ||
+|Sąrašo dalinimas 3      |0.0005793 |0.0002513 |-|
 
 ## Failas su 10000 įrašų
 |Strategija \ Konteineris| Vektorius           | Sąrašas          |Vektorius+      |
@@ -35,3 +35,9 @@ Programos veikimo spartos analizė, lyginant vektorių, sąrašą bei optimizuot
 ### Išvada: ###
 Prieš optimizuojant programą su vektoriumi, studentų sąrašo dalinimas greičiau atliekamas naudojant sąrašą. Atlikus pakeitimus, 
 studentų sąrašas greičiausiai padalinamas naudojant optimizuoto vektoriaus 2 strategiją.
+
+*Apie tyrimą:*
+*  *Tyrimas atliktas su 1000, 10000, 100000, 1000000 studentų duomenų failais;*
+*  *Namų darbų pažymys skaičiuojamas laikant, kad kiekvienas studentas gavo po 5 namų darbų pažymius;*
+*  *Galutinis pažymys skaičiuojamas naudojant vidurkį;*
+*  *Testavimo sistemos parametrai: CPU – 1.99 GHz, RAM – 4,00 GB, SSD – 128 GB*
