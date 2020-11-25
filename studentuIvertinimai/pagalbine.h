@@ -9,4 +9,5 @@ using std::vector;
 
 bool arSkaicius(string s);
 bool palyginimas(const Asmuo& a, const Asmuo& b);
+bool pazymiuPalyginimas(const Asmuo& a, const Asmuo& b);
 void atsitiktiniaiPazymiai(Asmuo& stud);

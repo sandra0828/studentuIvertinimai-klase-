@@ -4,6 +4,7 @@
 #include <vector>
 #include <chrono>
 #include <fstream>
+#include "pagalbine.h"
 
 using std::ofstream;
 using std::endl;
@@ -14,5 +15,5 @@ using std::left;
 using std::list;
 
 
-void studentuRusiavimas(list <Asmuo> studentai, list <Asmuo>& galvociai, list <Asmuo>& vargsiukai, string skaiciavimoBudas);
-void naujiSarasai(list <Asmuo> galvociai, list <Asmuo> vargsiukai, string kiek);
+void studentuRusiavimas(list <Asmuo>& studentai, list <Asmuo>& galvociai, list <Asmuo>& vargsiukai, string skaiciavimoBudas, string strategija);
+void naujiSarasai(list <Asmuo>& galvociai, list <Asmuo>& vargsiukai, string kiek);

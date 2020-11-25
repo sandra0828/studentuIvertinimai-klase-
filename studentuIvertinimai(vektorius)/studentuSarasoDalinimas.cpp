@@ -9,17 +9,9 @@ void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, ve
 
     if (strategija == "1")
     {
-        for (int i = n - 1; i >= 0; i--)
-        {
-            if (studentai.at(i).galutinis >= 5)
-            {
-                galvociai.push_back(studentai.at(i));
-            }
-            else
-            {
-                vargsiukai.push_back(studentai.at(i));
-            }
-        }
+        vector <Asmuo>::iterator it = std::partition(studentai.begin(), studentai.end(), arDaugiau_5);
+        copy(studentai.begin(), it, back_inserter(galvociai));
+        copy(it, studentai.end(), back_inserter(vargsiukai));
         studentai.clear();
     }
     else if (strategija == "3")
@@ -40,21 +32,18 @@ void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, ve
     }
     else
     {
-        sort(studentai.begin(), studentai.end(), pazymiuPalyginimas);
-        int i = 0;
-        while (studentai.at(i).galutinis < 5)
-        {
-            vargsiukai.push_back(studentai.at(i));
-            i++;
-        }
-        studentai.erase(studentai.begin(), studentai.begin() + i);
-        galvociai = studentai;
+        vector <Asmuo>::iterator it = std::partition (studentai.begin(), studentai.end(), arDaugiau_5);
+        std::move(studentai.begin(), it, back_inserter(galvociai));
+        studentai.erase(studentai.begin(), it);
+        vargsiukai = studentai;
         studentai.clear();
+     
     }
 
     auto end = std::chrono::high_resolution_clock::now();
+
     std::chrono::duration<double> diff = end - start;
-    std::cout << "Studentu padalinimas i du sarasus, pasalinant pradini vektoriu, uztruko: " << diff.count() << " s\n";
+    std::cout << "Studentu padalinimas i du sarasus uztruko: " << diff.count() << " s\n";
 }
 
 void naujiSarasai(vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string kiek)

@@ -1,30 +1,16 @@
 // studentuIvertinimai.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "Asmuo.h"
-#include "duomenuNuskaitymas.h"
-#include "duomenuIvedimas.h"
-#include "galutinisPazymys.h"
-#include "duomenuIsvedimas.h"
-#include "duomenuPasirinkimas.h"
-#include "failoSukurimas.h"
-#include "studentuSarasoDalinimas.h"
-
-using std::cout;
-using std::cin;
-using std::string;
-using std::endl;
-using std::vector;
-using std::list;
+#include "Antrastes.h";
 
 
 int main()
 {
     srand(time(0));
 
-    list <Asmuo> studentai;
-    list <Asmuo> galvociai;
-    list <Asmuo> vargsiukai;
+    vector <Asmuo> studentai;
+    vector <Asmuo> galvociai;
+    vector <Asmuo> vargsiukai;
 
     string failoPavadinimas;
     cout << "Iveskite duomenu failo pavadinima: " << endl;
@@ -49,8 +35,8 @@ int main()
         studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas, sarasoDalinimoStrategija);
         naujiSarasai(galvociai, vargsiukai, failoDydis);
     }
-
     
 
     return 0;
 }
+

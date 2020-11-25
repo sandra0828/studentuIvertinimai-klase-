@@ -25,60 +25,29 @@ int main()
     vector <Asmuo> galvociai;
     vector <Asmuo> vargsiukai;
 
-    string skaiciavimoBudas;
-    cout << "Pasirinkite, kaip skaiciuoti galutini bala: 'a' - naudojant vidurki; 'b' - naudojant mediana" << endl;
-    cin >> skaiciavimoBudas;
+    string failoPavadinimas;
+    cout << "Iveskite duomenu failo pavadinima: " << endl;
+    cin >> failoPavadinimas;
 
-    cout << "Failas su 1000 irasu: \n";
-    naujasFailas(1000, 5);
-    duomenuNuskaitymas(studentai, "kursiokai1000.txt");
-    studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas);
-    naujiSarasai(galvociai, vargsiukai, "1000");
-    cout << endl;
+    string failoDydis;
+    cout << "Iveskite failo dydi (kiek eiluciu sudaro faila):" << endl;
+    cin >> failoDydis;
 
-    cout << "Failas su 10000 irasu: \n";
-    naujasFailas(10000, 5);
-    duomenuNuskaitymas(studentai, "kursiokai10000.txt");
-    studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas);
-    naujiSarasai(galvociai, vargsiukai, "10000");
-    cout << endl;
+    duomenuNuskaitymas(studentai, failoPavadinimas + ".txt");
 
-    cout << "Failas su 1000000 irasu: \n";
-    naujasFailas(100000, 5);
-    duomenuNuskaitymas(studentai, "kursiokai100000.txt");
-    studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas);
-    naujiSarasai(galvociai, vargsiukai, "100000");
-    cout << endl;
-
-    cout << "Failas su 10000000 irasu: \n";
-    naujasFailas(1000000, 5);
-    duomenuNuskaitymas(studentai, "kursiokai1000000.txt");
-    studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas);
-    naujiSarasai(galvociai, vargsiukai, "1000000");
-    cout << endl;
-
-    cout << "Failas su 100000000 irasu: \n";
-    naujasFailas(10000000, 5);
-    duomenuNuskaitymas(studentai, "kursiokai10000000.txt");
-    studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas);
-    naujiSarasai(galvociai, vargsiukai, "10000000");
-    cout << endl;
-
-
-    /*duomenuPasirinkimas(studentai);
     if (studentai.size() > 0)
     {
         string skaiciavimoBudas;
         cout << "Pasirinkite, kaip skaiciuoti galutini bala: 'a' - naudojant vidurki; 'b' - naudojant mediana" << endl;
         cin >> skaiciavimoBudas;
 
-        galutinisPazymys(studentai, skaiciavimoBudas);
-        duomenuIsvedimas(studentai);
+        string sarasoDalinimoStrategija;
+        cout << "Pasirinkite saraso dalinimo strategija: 1, 2, 3" << endl;
+        cin >> sarasoDalinimoStrategija;
+
+        studentuRusiavimas(studentai, galvociai, vargsiukai, skaiciavimoBudas, sarasoDalinimoStrategija);
+        naujiSarasai(galvociai, vargsiukai, failoDydis);
     }
-    else
-    {
-        cout << "Nera duomenu" << endl;
-    } */
     
     return 0;
 }

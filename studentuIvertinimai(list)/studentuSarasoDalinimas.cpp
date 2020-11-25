@@ -1,31 +1,51 @@
 #include "studentuSarasoDalinimas.h"
 
-void studentuRusiavimas(list <Asmuo> studentai, list <Asmuo>& galvociai, list <Asmuo>& vargsiukai, string skaiciavimoBudas)
+void studentuRusiavimas(list <Asmuo>& studentai, list <Asmuo>& galvociai, list <Asmuo>& vargsiukai, string skaiciavimoBudas, string strategija)
 {
     galutinisPazymys(studentai, skaiciavimoBudas);
 
     auto start = std::chrono::high_resolution_clock::now();
     int n = studentai.size();
 
-    for (int i = 0; i < n; i++)
+    if (strategija == "1")
     {
-        if (studentai.front().galutinis >= 5)
-        {
-            galvociai.push_front(studentai.front());
-        }
-        else
-        {
-            vargsiukai.push_front(studentai.front());
-        }
-        studentai.pop_front();
+        studentai.sort(pazymiuPalyginimas);
+        list<Asmuo>::iterator it = std::find_if(studentai.begin(), studentai.end(), arMaziau_5);
+        vargsiukai.assign(studentai.begin(), it);
+        galvociai.assign(it, studentai.end());
+        studentai.clear();
+
     }
+    else if (strategija == "3")
+    {
+        for (int i = 0; i < n; i++)
+        {
+            if (studentai.front().galutinis >= 5)
+            {
+                galvociai.push_front(studentai.front());
+            }
+            else
+            {
+                vargsiukai.push_front(studentai.front());
+            }
+            studentai.pop_front();
+        }
+    }
+    else
+    {
+        studentai.sort(pazymiuPalyginimas);
+        list<Asmuo>::iterator it = std::find_if(studentai.begin(), studentai.end(), arMaziau_5);
+        vargsiukai.splice(vargsiukai.begin(), studentai, studentai.begin(), it);
+        galvociai.splice(galvociai.begin(), studentai, it, studentai.end());
+    }
+
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;
     std::cout << "Studentu padalinimas i du sarasus, pasalinant pradini vektoriu, uztruko: " << diff.count() << " s\n";
 }
 
-void naujiSarasai(list <Asmuo> galvociai, list <Asmuo> vargsiukai, string kiek)
+void naujiSarasai(list <Asmuo>& galvociai, list <Asmuo>& vargsiukai, string kiek)
 {
     ofstream fr1("Galvociai" + kiek + ".txt");
 
