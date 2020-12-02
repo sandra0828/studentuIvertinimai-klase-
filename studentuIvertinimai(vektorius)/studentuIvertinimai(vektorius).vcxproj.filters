@@ -42,6 +42,9 @@
     <ClCompile Include="studentuSarasoDalinimas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Asmuo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Antrastes.h">

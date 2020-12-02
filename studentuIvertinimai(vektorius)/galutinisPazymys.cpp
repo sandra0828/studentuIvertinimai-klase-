@@ -27,32 +27,27 @@ float mediana(vector <int> pazymiai)
     }
 }
 
-
 void galutinisPazymys(vector <Asmuo> &studentai, string skaiciavimoBudas)
 {
-
-
     if (skaiciavimoBudas != "a" && skaiciavimoBudas != "b")
     {
         cout << "Nepasirinktas skaiciavimo budas, naudojamas vidurkis " << endl;
     }
-
-    for (int i = 0; i < studentai.size(); i++)
+    if (skaiciavimoBudas == "b") // naudojama mediana
     {
-        if (skaiciavimoBudas == "a") // naudojamas vidurkis
+        for (int i = 0; i < studentai.size(); i++)
         {
-            studentai.at(i).galutinis = vidurkis(studentai.at(i).pazymiai);
+            studentai.at(i).galutinisBalas(mediana);
         }
-        else if (skaiciavimoBudas == "b") // naudojama mediana
-        {
-            studentai.at(i).galutinis = mediana(studentai.at(i).pazymiai);
-        }
-        else
-        {
-            studentai.at(i).galutinis = vidurkis(studentai.at(i).pazymiai);
-        }
-
-        studentai.at(i).galutinis = studentai.at(i).galutinis * 0.4 + studentai.at(i).egzaminas * 0.6;
     }
+    else  // naudojamas vidurkis
+    {
+        for (int i = 0; i < studentai.size(); i++)
+        {
+            studentai.at(i).galutinisBalas(vidurkis);
+        }
+    } 
+
+
 
 }

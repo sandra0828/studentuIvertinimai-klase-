@@ -35,7 +35,7 @@ void duomenuPasirinkimas(vector <Asmuo>& studentai)
 
     if (kokieDuomenys == 1)
     {
-        duomenuIvedimas(studentai);
+        //duomenuIvedimas(studentai);
     }
     else
     {

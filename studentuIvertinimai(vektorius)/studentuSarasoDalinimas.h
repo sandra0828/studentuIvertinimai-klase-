@@ -5,6 +5,7 @@
 #include <vector>
 #include <chrono>
 #include <fstream>
+#include <algorithm>
 
 using std::ofstream;
 using std::endl;

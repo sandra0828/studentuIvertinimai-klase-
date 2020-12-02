@@ -1,5 +1,5 @@
 #include "duomenuIvedimas.h"
-
+/*
 void pazymiuIvedimas(Asmuo& stud)
 {
     string egzaminas;
@@ -106,4 +106,4 @@ void pazymioTikrinimas(string &pazymys)
         }
 
     } while (tinkamas == false);
-}
+} */

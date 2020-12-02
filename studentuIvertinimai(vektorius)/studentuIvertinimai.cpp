@@ -21,7 +21,7 @@ int main()
     cin >> failoDydis;
 
     duomenuNuskaitymas(studentai, failoPavadinimas + ".txt");
-    
+
     if (studentai.size() > 0)
     {
         string skaiciavimoBudas;

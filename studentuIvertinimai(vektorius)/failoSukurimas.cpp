@@ -19,12 +19,9 @@ void naujasFailas(int n, int kiekPazymiu)
 
 	for (int i = 0; i < n; i++)
 	{
-		Asmuo asmuo;
 		string skaicius = to_string(i+1);
 
-		asmuo.vardas = "Vardas" + skaicius;
-		asmuo.pavarde = "Pavarde" + skaicius;
-		fr << left << setw(15) << asmuo.vardas << setw(20) << asmuo.pavarde;
+		fr << left << setw(15) << "Vardas" + skaicius << setw(20) << "Pavarde" + skaicius;
 
 		using hrClock = std::chrono::high_resolution_clock;
 		std::mt19937 mt(static_cast<long unsigned int>(hrClock::now().time_since_epoch().count()));
@@ -32,16 +29,14 @@ void naujasFailas(int n, int kiekPazymiu)
 
 		for (int j = 0; j < kiekPazymiu; j++)
 		{
-			asmuo.pazymiai.push_back(dist(mt));
-			fr << setw(5) << asmuo.pazymiai.at(j);
+			fr << setw(5) << dist(mt);
 		}
 
-		asmuo.egzaminas = dist(mt);
-		fr << setw(5) << asmuo.egzaminas << endl;
+		fr << setw(5) << dist(mt) << endl;
 	}
 
 	fr.close();
 	auto end = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> diff = end - start;
 	std::cout << "Failo sukurimas uztruko: " << diff.count() << " s\n";
-}
+} 

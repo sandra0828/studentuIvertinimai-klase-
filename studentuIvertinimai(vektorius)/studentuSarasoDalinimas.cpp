@@ -18,7 +18,7 @@ void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, ve
     {
         for (int i = n - 1; i >= 0; i--)
         {
-            if (studentai.at(i).galutinis >= 5)
+            if (studentai.at(i).gautiGalutini() >= 5)
             {
                 galvociai.push_back(studentai.at(i));
                 studentai.pop_back();
@@ -54,7 +54,7 @@ void naujiSarasai(vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string 
     fr1 << left << setw(15) << "Vardas" << " | " << setw(20) << "Pavarde" << " | " << "Galutinis (Vid.) / Galutinis(Med.) " << endl;
     for (int i = 0; i < galvociai.size(); i++)
     {
-        fr1 << left << setw(15) << galvociai.at(i).vardas << " | " << setw(20) << galvociai.at(i).pavarde << " | " << fixed << setprecision(2) << galvociai.at(i).galutinis << endl;
+        fr1 << left << setw(15) << galvociai.at(i).gautiVarda() << " | " << setw(20) << galvociai.at(i).gautiPavarde() << " | " << fixed << setprecision(2) << galvociai.at(i).gautiGalutini() << endl;
     }
     fr1.close();
     galvociai.clear();
@@ -69,7 +69,7 @@ void naujiSarasai(vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string 
     fr2 << left << setw(15) << "Vardas" << " | " << setw(20) << "Pavarde" << " | " << "Galutinis (Vid.) / Galutinis(Med.) " << endl;
     for (int i = 0; i < vargsiukai.size(); i++)
     {
-        fr2 << left << setw(15) << vargsiukai.at(i).vardas << " | " << setw(20) << vargsiukai.at(i).pavarde << " | " << fixed << setprecision(2) << vargsiukai.at(i).galutinis << endl;
+        fr2 << left << setw(15) << vargsiukai.at(i).gautiVarda() << " | " << setw(20) << vargsiukai.at(i).gautiPavarde() << " | " << fixed << setprecision(2) << vargsiukai.at(i).gautiGalutini() << endl;
     }
     fr2.close();
     vargsiukai.clear();

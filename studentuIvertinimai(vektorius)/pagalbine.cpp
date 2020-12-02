@@ -10,29 +10,7 @@ bool arSkaicius(string s)
     return true;
 }
 
-bool palyginimas(const Asmuo& a, const Asmuo& b)
-{
-    if (a.vardas != b.vardas)
-    {
-        return a.vardas < b.vardas;
-    }
-    if (a.vardas == b.vardas)
-    {
-        return a.pavarde < b.pavarde;
-    }
-}
-
-bool pazymiuPalyginimas(const Asmuo& a, const Asmuo& b)
-{
-        return a.galutinis < b.galutinis; 
-}
-
-bool arDaugiau_5(const Asmuo& a)
-{
-    return a.galutinis >= 5;
-}
-
-void atsitiktiniaiPazymiai(Asmuo& stud)
+/*void atsitiktiniaiPazymiai(Asmuo& stud)
 {
     stud.egzaminas = rand() % 10 + 1;
     cout << "Egzamino pazymys: " << stud.egzaminas << endl;
@@ -51,4 +29,4 @@ void atsitiktiniaiPazymiai(Asmuo& stud)
         stud.pazymiai.push_back(random);
     }
     cout << endl;
-}
+}*/

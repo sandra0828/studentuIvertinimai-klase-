@@ -1,5 +1,9 @@
 #pragma once
-#include "Asmuo.h";
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <vector>
 
 using std::cout;
 using std::cin;
@@ -8,7 +12,4 @@ using std::endl;
 using std::vector;
 
 bool arSkaicius(string s);
-bool palyginimas(const Asmuo& a, const Asmuo& b);
-bool pazymiuPalyginimas(const Asmuo& a, const Asmuo& b);
-bool arDaugiau_5(const Asmuo& a);
-void atsitiktiniaiPazymiai(Asmuo& stud);
+//void atsitiktiniaiPazymiai(Asmuo& stud);
