@@ -10,10 +10,10 @@ bool arSkaicius(string s)
     return true;
 }
 
-/*void atsitiktiniaiPazymiai(Asmuo& stud)
+void atsitiktiniaiPazymiai(vector <int>& paz, int& egz)
 {
-    stud.egzaminas = rand() % 10 + 1;
-    cout << "Egzamino pazymys: " << stud.egzaminas << endl;
+    egz = rand() % 10 + 1;
+    cout << "Egzamino pazymys: " << egz << endl;
 
     int kiek;
     cout << "Kiek sugeneruoti pazymiu? : " << endl;
@@ -26,7 +26,7 @@ bool arSkaicius(string s)
     {
         int random = rand() % 10 + 1;
         cout << random << " ";
-        stud.pazymiai.push_back(random);
+        paz.push_back(random);
     }
     cout << endl;
-}*/
+}
