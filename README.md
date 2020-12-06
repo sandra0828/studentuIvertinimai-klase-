@@ -1,22 +1,38 @@
-# Studentų įvertinimai
+# Efektyvumo tyrimas
+ Atliekama programos veikimo spartos analizė, veikimo greičio palyginimas po tam tikrų pakeitimų
+## Lyginama struktūra ir klasė
+### <p align="center"> Failas su 100000 įrašų <p>
+|              |Duomenų nuskaitymas| Studentų sąrašo dalinimas| „Galvočių“ įrašymo į failą trukmė | „Vargšiukų“ įrašymo į failą trukmė|
+|--------------|-------------------|--------------------------|-----------------------------------|-----------------------------------|
+|Struktūra| 0.529803|0.032707 |0.545982 |0.471009 |
+|Klasė| 0.565758|0.0346087 |0.559352 |0.477205 |
 
-Programa nuskaito studentų duomenis (vardą, pavardę, n pažymių ir egzamino įvertinimą) ir iš šių duomenų suskaičiuoja galutinį įvertinimą pagal formulę:
-> galutinis = 0.4 * vidurkis + 0.6 * egzaminas.
+### <p align="center"> Failas su 1000000 įrašų
+|              |Duomenų nuskaitymas| Studentų sąrašo dalinimas| „Galvočių“ įrašymo į failą trukmė | „Vargšiukų“ įrašymo į failą trukmė|
+|--------------|-------------------|--------------------------|-----------------------------------|-----------------------------------|
+|Struktūra|5.59695 |0.389309 | 5.10926|5.07403 |
+|Klasė| 5.58995| 0.352637|5.41216 |4.97299 |
 
-## Struktūra
-Programą sudaro 3 projektai ir kiekvieno iš jų įdiegimo failai:
- * Naudojamas vektorius: studentuIvertinimai, setup(vektorius);
- * Naudojamas sąrašas: studentuIvertinimai(list), setup(sarasas);
- * Naudojamas vektorius, kai optimizuotas studentų sąrašo dalinimas: studentuIvertinimai(vektorius), setup(vektorius+).
+**Išvada:** pakeitimas iš struktūros į klasę reikšmingos įtakos programos veikimo greičiui nedaro.
 
-### Programos veikimas
-1. Vartotojo prašoma įvesti duomenų failo pavadinimą (.txt programa prideda automatiškai). Jei duomenų failas su tokiu pavadinimu neegzistuoja, parodomas pranešimas „Failas nerastas“ ir programa sustoja.
-2. Vartotojas įveda failą sudarančių eilučių skaičių. Šis skaičius naudojamas kuriant naujus sąrašus: prie pavadinimų „galvočiai“ ir „vargšiukai“ pridedamas skaičius  pvz. „galvočiai1000“ ), kad būtų aišku, iš kokio failo perkelti šie duomenys.
-3. Vyksta duomenų nuskaitymas, ekrane parodoma, kiek laiko užtruko šis veiksmas. Jei duomenų failas tuščias, programa sustoja.
-4. Vartotojui leidžiama pasirinkti, kaip skaičiuoti galutinį balą: "a" – naudojant vidurkį, "b" - naudojant medianą. (*Jei nepasirenkamas nei vienas iš šių būdų, ekrane parodomas pranešimas ir automatiškai naudojamas vidurkis*). 
-5. Vartotojas pasirenka sąrašo dalinimo strategiją *(Nepasirinkus nei vienos iš šių, naudojama sparčiausia – 2)*:
-   * 1 – Bendro studentai konteinerio skaidymas į du naujus to paties tipo konteinerius: "vargšiukų" ir "galvočių", pabaigoje panaikinant pradinį konteinerį.
-   * 2 - Bendro studentų konteinerio skaidymas panaudojant tik vieną naują konteinerį: "galvočiai" (vargšiukai lieka bendrame studentų konteineryje, o galvočiai perkeliami į naują).
-   * 3 - Bendro studentai konteinerio skaidymas į du naujus to paties tipo konteinerius: "vargšiukų" ir "galvočių" perkeliant po vieną elementą į naują konteinerį ir iškart pašalinant iš pradinio.
-6. Vyksta studentų sąrašo dalinimas pagal pasirinktą strategiją, ekrane parodomas veiksmo laikas.
-7. Kuriami nauji sąrašai: „vargšiukai“ ir „galvočiai“. (Realizacijoje su vektoriais ekrane parodomas kiekvieno failo sukūrimo laikas).
+## Kompiliatoriaus optimizavimo lygiai
+### <p align="center">Failas su 100000 įrašų
+|              |Duomenų nuskaitymas| Studentų sąrašo dalinimas| „Galvočių“ įrašymo į failą trukmė | „Vargšiukų“ įrašymo į failą trukmė|
+|--------------|-------------------|--------------------------|-----------------------------------|-----------------------------------|
+|01|0.597758 | 0.0299131| 0.535481| 0.479103|
+|02|0.527846 | 0.029564|0.510389 | 0.466748|
+|03| | | | |
+
+### <p align="center"> Failas su 1000000 įrašų
+|              |Duomenų nuskaitymas| Studentų sąrašo dalinimas| „Galvočių“ įrašymo į failą trukmė | „Vargšiukų“ įrašymo į failą trukmė|
+|--------------|-------------------|--------------------------|-----------------------------------|-----------------------------------|
+|01|5.78048 |0.401144 |5.11561 |4.82979 |
+|02|5.26382 | 0.366496| 5.01538| 4.73238|
+|03| | | | |
+
+*Apie tyrimą:*
+*  *Tyrimas atliktas su 100000, 1000000 studentų duomenų failais;*
+*  *Namų darbų pažymys skaičiuojamas laikant, kad kiekvienas studentas gavo po 5 namų darbų pažymius;*
+*  *Galutinis pažymys skaičiuojamas naudojant vidurkį;*
+*  *Sąrašo dalinimui naudojama greičiausia (2) strategija;*
+*  *Testavimo sistemos parametrai: CPU – 1.99 GHz, RAM – 4,00 GB, SSD – 128 GB*
