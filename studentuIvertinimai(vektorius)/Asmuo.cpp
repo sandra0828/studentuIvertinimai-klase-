@@ -14,6 +14,18 @@ Asmuo::Asmuo(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int
     egzaminas = egzaminas_n;
 }
 
+Asmuo& Asmuo:: operator=(const Asmuo& a) // priskyrimo operatorius
+{
+    if (&a == this) return *this;
+
+    vardas = a.vardas;
+    pavarde = a.pavarde;
+    pazymiai = a.pazymiai;
+    egzaminas = a.egzaminas;
+    galutinis = a.galutinis;
+    return *this;
+}
+
 void Asmuo::nuskaityti(std::istream& is, int kiekZodziu)
 {
     is >> vardas >> ws >> pavarde >> ws;
