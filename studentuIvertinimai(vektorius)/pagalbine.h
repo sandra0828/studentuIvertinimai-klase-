@@ -12,4 +12,4 @@ using std::endl;
 using std::vector;
 
 bool arSkaicius(string s);
-//void atsitiktiniaiPazymiai(Asmuo& stud);
+void atsitiktiniaiPazymiai(vector <int>& paz, int& egz);

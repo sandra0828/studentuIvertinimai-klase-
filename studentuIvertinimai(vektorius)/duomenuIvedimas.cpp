@@ -1,6 +1,6 @@
 #include "duomenuIvedimas.h"
-/*
-void pazymiuIvedimas(Asmuo& stud)
+
+void pazymiuIvedimas(vector <int>& paz, int& egz)
 {
     string egzaminas;
 
@@ -8,9 +8,7 @@ void pazymiuIvedimas(Asmuo& stud)
     cin >> egzaminas;
 
     pazymioTikrinimas(egzaminas);
-    int egz = std::stoi(egzaminas);
-    stud.egzaminas = egz;
-
+    egz = std::stoi(egzaminas);
 
     bool arIvestas = true; // ar ivestas dar vienas pazymys 
     string pazymys;
@@ -34,8 +32,7 @@ void pazymiuIvedimas(Asmuo& stud)
         {
             arNulis = false;
             pazymioTikrinimas(pazymys);
-            int paz = std::stoi(pazymys);
-            stud.pazymiai.push_back(paz);
+            paz.push_back(std::stoi(pazymys));
         }
     }
 }
@@ -46,11 +43,14 @@ void duomenuIvedimas(vector <Asmuo>& stud)
     cout << "Kiek bus studentu? " << endl;
     cin >> studentuSk;
 
+    string vardas, pavarde;
+    vector <int> pazymiai;
+    int egzaminas;
+
     for (int i = 0; i < studentuSk; i++)
     {
-        Asmuo studentoDuomenys; // laikinas kintamasis vieno studento duomenims saugoti
         cout << "Iveskite studento varda, pavarde: " << endl;
-        cin >> studentoDuomenys.vardas >> studentoDuomenys.pavarde;
+        cin >> vardas >> pavarde;
 
         string kokiePazymiai; // ar bus ivedami ranka, ar generuojami atsitiktinai
         cout << "Jei norite ivesti studento pazymius -  iveskite 'a', jei generuoti atsitiktinai - iveskite 'b'" << endl;
@@ -58,19 +58,20 @@ void duomenuIvedimas(vector <Asmuo>& stud)
 
         if (kokiePazymiai == "a")
         {
-            pazymiuIvedimas(studentoDuomenys);
+            pazymiuIvedimas(pazymiai, egzaminas);
         }
         else if (kokiePazymiai == "b")
         {
-            atsitiktiniaiPazymiai(studentoDuomenys);
+            atsitiktiniaiPazymiai(pazymiai, egzaminas);
         }
         else
         {
             cout << "Nepasirinktas ivedimo budas, parenkamas pazymiu ivedimas" << endl;
-            pazymiuIvedimas(studentoDuomenys);
+            pazymiuIvedimas(pazymiai, egzaminas);
         }
 
-        stud.push_back(studentoDuomenys);
+        Asmuo asmuo(vardas, pavarde, pazymiai, egzaminas);
+        stud.push_back(asmuo);
     }
 }
 
@@ -106,4 +107,4 @@ void pazymioTikrinimas(string &pazymys)
         }
 
     } while (tinkamas == false);
-} */
+}

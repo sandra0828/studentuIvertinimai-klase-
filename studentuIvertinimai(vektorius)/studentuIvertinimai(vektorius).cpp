@@ -36,7 +36,6 @@ int main()
         naujiSarasai(galvociai, vargsiukai, failoDydis);
     }
     
-
     return 0;
 }
 

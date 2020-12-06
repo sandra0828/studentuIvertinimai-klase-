@@ -6,6 +6,14 @@ Asmuo::Asmuo(std::istream& is, int kiekZodziu)
     nuskaityti(is, kiekZodziu);
 }
 
+Asmuo::Asmuo(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n)
+{
+    vardas = vardas_n;
+    pavarde = pavarde_n;
+    pazymiai = pazymiai_n;
+    egzaminas = egzaminas_n;
+}
+
 void Asmuo::nuskaityti(std::istream& is, int kiekZodziu)
 {
     is >> vardas >> ws >> pavarde >> ws;

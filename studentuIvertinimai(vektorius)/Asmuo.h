@@ -27,6 +27,7 @@ private:
 public:
     Asmuo() : egzaminas(0) { }
     Asmuo(std::istream& is, int kiekZodziu);
+    Asmuo(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n);
     inline std::string gautiVarda() const { return vardas; }
     inline std::string gautiPavarde() const { return pavarde; }
     inline float gautiGalutini() const { return galutinis; }
