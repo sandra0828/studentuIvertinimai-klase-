@@ -31,6 +31,7 @@ public:
     Asmuo(const Asmuo& a) : vardas(a.vardas), pavarde(a.pavarde), pazymiai(a.pazymiai),
         egzaminas(a.egzaminas), galutinis(a.galutinis) {}; // kopijavimo konstruktorius
     Asmuo& operator=(const Asmuo& a); // priskyrimo operatorius
+    int& operator[](int i); // grazina studento i-taji namu darbu pazymi
 
     inline std::string gautiVarda() const { return vardas; }
     inline std::string gautiPavarde() const { return pavarde; }

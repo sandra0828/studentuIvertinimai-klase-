@@ -26,6 +26,15 @@ Asmuo& Asmuo:: operator=(const Asmuo& a) // priskyrimo operatorius
     return *this;
 }
 
+int &Asmuo:: operator[](int i) // grazina studento i-taji namu darbu pazymi
+{
+    if (i < 0 || i >= pazymiai.size())
+    {
+        throw std::out_of_range{ "Tokio pazymio nera" };
+    }
+    return pazymiai.at(i);
+}
+
 void Asmuo::nuskaityti(std::istream& is, int kiekZodziu)
 {
     is >> vardas >> ws >> pavarde >> ws;
