@@ -8,6 +8,7 @@ int main()
 {
     srand(time(0));
 
+
     vector <Studentas> studentai;
     vector <Studentas> galvociai;
     vector <Studentas> vargsiukai;

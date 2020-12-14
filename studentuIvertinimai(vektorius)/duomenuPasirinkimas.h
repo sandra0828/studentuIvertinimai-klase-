@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Asmuo.h"
+#include "Studentas.h"
 #include "duomenuIvedimas.h"
 #include "duomenuNuskaitymas.h"
 

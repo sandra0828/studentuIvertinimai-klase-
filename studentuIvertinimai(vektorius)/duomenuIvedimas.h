@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Asmuo.h";
+#include "Studentas.h";
 #include "pagalbine.h"
 
 using std::cout;

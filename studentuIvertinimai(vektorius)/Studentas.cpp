@@ -1,4 +1,4 @@
-#include "Asmuo.h"
+#include "Studentas.h"
 
 
 Studentas::Studentas(std::istream& is, int kiekZodziu)
@@ -6,10 +6,8 @@ Studentas::Studentas(std::istream& is, int kiekZodziu)
     nuskaityti(is, kiekZodziu);
 }
 
-Studentas::Studentas(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n)
+Studentas::Studentas(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n) : Asmuo(vardas_n, pavarde_n)
 {
-    vardas = vardas_n;
-    pavarde = pavarde_n;
     pazymiai = pazymiai_n;
     egzaminas = egzaminas_n;
 }

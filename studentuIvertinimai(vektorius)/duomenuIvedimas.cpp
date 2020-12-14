@@ -70,8 +70,8 @@ void duomenuIvedimas(vector <Studentas>& stud)
             pazymiuIvedimas(pazymiai, egzaminas);
         }
 
-        Studentas asmuo(vardas, pavarde, pazymiai, egzaminas);
-        stud.push_back(asmuo);
+        Studentas studentas(vardas, pavarde, pazymiai, egzaminas);
+        stud.push_back(studentas);
     }
 }
 

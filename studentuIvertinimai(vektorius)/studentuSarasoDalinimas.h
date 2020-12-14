@@ -1,5 +1,5 @@
 #pragma once
-#include "Asmuo.h"
+#include "Studentas.h"
 #include "galutinisPazymys.h"
 #include "pagalbine.h"
 #include <vector>
