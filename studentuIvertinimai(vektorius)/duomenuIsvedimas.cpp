@@ -1,6 +1,6 @@
 #include "duomenuIsvedimas.h"
 
-void duomenuIsvedimas(vector <Asmuo> studentai)
+void duomenuIsvedimas(vector <Studentas> studentai)
 {
     sort(studentai.begin(), studentai.end(), palyginimasPagalVarda);
 

@@ -17,7 +17,7 @@ using std::getline;
 using std::stringstream;
 using std::ws;
 
-class Asmuo {
+class Studentas {
 private:
     std::string vardas;
     std::string pavarde;
@@ -25,12 +25,12 @@ private:
     float galutinis = 0;
     std::vector<int> pazymiai;
 public:
-    Asmuo() : egzaminas(0) { }
-    Asmuo(std::istream& is, int kiekZodziu);
-    Asmuo(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n);
-    Asmuo(const Asmuo& a) : vardas(a.vardas), pavarde(a.pavarde), pazymiai(a.pazymiai),
+    Studentas() : egzaminas(0) { }
+    Studentas(std::istream& is, int kiekZodziu);
+    Studentas(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n);
+    Studentas(const Asmuo& a) : vardas(a.vardas), pavarde(a.pavarde), pazymiai(a.pazymiai),
         egzaminas(a.egzaminas), galutinis(a.galutinis) {}; // kopijavimo konstruktorius
-    Asmuo& operator=(const Asmuo& a); // priskyrimo operatorius
+    Studentas& operator=(const Asmuo& a); // priskyrimo operatorius
     int& operator[](int i); // grazina studento i-taji namu darbu pazymi
 
     inline std::string gautiVarda() const { return vardas; }
@@ -39,9 +39,9 @@ public:
     void nuskaityti(std::istream& is, int kiekZodziu);
     double galutinisBalas(float (*funkcija) (vector <int>));
 
-    ~Asmuo() {}
+    ~Studentas() {}
 };
 
-bool palyginimasPagalVarda(const Asmuo& a, const Asmuo& b);
-bool palyginimasPagalPazymi(const Asmuo& a, const Asmuo& b);
-bool arDaugiau_5(const Asmuo& a);
+bool palyginimasPagalVarda(const Studentas& a, const Studentas& b);
+bool palyginimasPagalPazymi(const Studentas& a, const Studentas& b);
+bool arDaugiau_5(const Studentas& a);

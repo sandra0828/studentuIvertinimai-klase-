@@ -8,9 +8,9 @@ int main()
 {
     srand(time(0));
 
-    vector <Asmuo> studentai;
-    vector <Asmuo> galvociai;
-    vector <Asmuo> vargsiukai;
+    vector <Studentas> studentai;
+    vector <Studentas> galvociai;
+    vector <Studentas> vargsiukai;
 
     string failoPavadinimas;
     cout << "Iveskite duomenu failo pavadinima: " << endl;

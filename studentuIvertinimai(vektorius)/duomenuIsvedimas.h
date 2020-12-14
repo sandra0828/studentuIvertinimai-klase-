@@ -11,4 +11,4 @@ using std::fixed;
 using std::left;
 using std::vector;
 
-void duomenuIsvedimas(vector <Asmuo> studentai);
+void duomenuIsvedimas(vector <Studentas> studentai);

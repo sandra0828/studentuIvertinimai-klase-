@@ -1,12 +1,12 @@
 #include "Asmuo.h"
 
 
-Asmuo::Asmuo(std::istream& is, int kiekZodziu)
+Studentas::Studentas(std::istream& is, int kiekZodziu)
 {
     nuskaityti(is, kiekZodziu);
 }
 
-Asmuo::Asmuo(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n)
+Studentas::Studentas(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int egzaminas_n)
 {
     vardas = vardas_n;
     pavarde = pavarde_n;
@@ -14,7 +14,7 @@ Asmuo::Asmuo(string vardas_n, string pavarde_n, std::vector<int> pazymiai_n, int
     egzaminas = egzaminas_n;
 }
 
-Asmuo& Asmuo:: operator=(const Asmuo& a) // priskyrimo operatorius
+Studentas& Studentas:: operator=(const Studentas& a) // priskyrimo operatorius
 {
     if (&a == this) return *this;
 
@@ -26,7 +26,7 @@ Asmuo& Asmuo:: operator=(const Asmuo& a) // priskyrimo operatorius
     return *this;
 }
 
-int &Asmuo:: operator[](int i) // grazina studento i-taji namu darbu pazymi
+int &Studentas:: operator[](int i) // grazina studento i-taji namu darbu pazymi
 {
     if (i < 0 || i >= pazymiai.size())
     {
@@ -35,7 +35,7 @@ int &Asmuo:: operator[](int i) // grazina studento i-taji namu darbu pazymi
     return pazymiai.at(i);
 }
 
-void Asmuo::nuskaityti(std::istream& is, int kiekZodziu)
+void Studentas::nuskaityti(std::istream& is, int kiekZodziu)
 {
     is >> vardas >> ws >> pavarde >> ws;
 
@@ -72,14 +72,14 @@ void Asmuo::nuskaityti(std::istream& is, int kiekZodziu)
     egzaminas = egz;
 }
 
-double Asmuo:: galutinisBalas(float (*funkcija) (vector <int>))
+double Studentas:: galutinisBalas(float (*funkcija) (vector <int>))
 {
     galutinis = funkcija(pazymiai);
     galutinis = galutinis * 0.4 + egzaminas * 0.6;
     return galutinis;
 }
 
-bool palyginimasPagalVarda(const Asmuo& a, const Asmuo& b)
+bool palyginimasPagalVarda(const Studentas& a, const Studentas& b)
 {
     if (a.gautiVarda() != b.gautiVarda())
     {
@@ -91,12 +91,12 @@ bool palyginimasPagalVarda(const Asmuo& a, const Asmuo& b)
     }
 }
 
-bool palyginimasPagalPazymi(const Asmuo& a, const Asmuo& b)
+bool palyginimasPagalPazymi(const Studentas& a, const Studentas& b)
 {
     return a.gautiGalutini() < b.gautiGalutini();
 }
 
-bool arDaugiau_5(const Asmuo& a)
+bool arDaugiau_5(const Studentas& a)
 {
     return a.gautiGalutini() >= 5;
 }

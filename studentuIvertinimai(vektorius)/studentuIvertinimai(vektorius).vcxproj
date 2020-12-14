@@ -153,7 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Antrastes.h" />
-    <ClInclude Include="Asmuo.h" />
+    <ClInclude Include="Studentas.h" />
     <ClInclude Include="duomenuIsvedimas.h" />
     <ClInclude Include="duomenuIvedimas.h" />
     <ClInclude Include="duomenuNuskaitymas.h" />

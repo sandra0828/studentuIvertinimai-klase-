@@ -15,4 +15,4 @@ using std::getline;
 using std::stringstream;
 using std::ws;
 
-void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas);
+void duomenuNuskaitymas(vector <Studentas>& stud, string failoVardas);

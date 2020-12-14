@@ -27,7 +27,7 @@ float mediana(vector <int> pazymiai)
     }
 }
 
-void galutinisPazymys(vector <Asmuo> &studentai, string skaiciavimoBudas)
+void galutinisPazymys(vector <Studentas> &studentai, string skaiciavimoBudas)
 {
     if (skaiciavimoBudas != "a" && skaiciavimoBudas != "b")
     {
