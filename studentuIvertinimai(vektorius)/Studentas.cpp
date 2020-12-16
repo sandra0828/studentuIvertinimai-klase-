@@ -12,10 +12,9 @@ Studentas::Studentas(string vardas_n, string pavarde_n, std::vector<int> pazymia
     egzaminas = egzaminas_n;
 }
 
-Studentas& Studentas:: operator=(const Studentas& a) // priskyrimo operatorius
+Studentas& Studentas:: operator=(const Studentas& a)   // priskyrimo operatorius
 {
     if (&a == this) return *this;
-
     vardas = a.vardas;
     pavarde = a.pavarde;
     pazymiai = a.pazymiai;
