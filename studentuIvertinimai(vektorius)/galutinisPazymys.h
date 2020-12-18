@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Asmuo.h"
+#include "Studentas.h"
 #include <algorithm>
 
 using std::cout;
@@ -11,4 +11,4 @@ using std::vector;
 
 float vidurkis(vector <int> pazymiai);
 float mediana(vector <int> pazymiai);
-void galutinisPazymys(vector <Asmuo>& studentai, string skaiciavimoBudas);
+void galutinisPazymys(vector <Studentas>& studentai, string skaiciavimoBudas);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Asmuo.h";
+#include "Studentas.h";
 #include "pagalbine.h"
 
 using std::cout;
@@ -10,5 +10,5 @@ using std::endl;
 using std::vector;
 
 void pazymiuIvedimas(vector <int>& paz, int& egz);
-void duomenuIvedimas(vector <Asmuo>& stud);
+void duomenuIvedimas(vector <Studentas>& stud);
 void pazymioTikrinimas(string& pazymys);

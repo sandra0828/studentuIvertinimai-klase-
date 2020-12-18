@@ -1,5 +1,5 @@
 #pragma once
-#include "Asmuo.h"
+#include "Studentas.h"
 #include "galutinisPazymys.h"
 #include "pagalbine.h"
 #include <vector>
@@ -15,5 +15,5 @@ using std::fixed;
 using std::left;
 
 
-void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas, string strategija);
-void naujiSarasai(vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string kiek);
+void studentuRusiavimas(vector <Studentas>& studentai, vector <Studentas>& galvociai, vector <Studentas>& vargsiukai, string skaiciavimoBudas, string strategija);
+void naujiSarasai(vector <Studentas>& galvociai, vector <Studentas>& vargsiukai, string kiek);

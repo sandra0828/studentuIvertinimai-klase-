@@ -1,6 +1,6 @@
 #include "duomenuPasirinkimas.h"
 
-void duomenuPasirinkimas(vector <Asmuo>& studentai)
+void duomenuPasirinkimas(vector <Studentas>& studentai)
 {
     int kokieDuomenys;
     cout << "Jei norite ivesti duomenis, spauskite 1; jei norite nuskaityti duomenis, spauskite 2" << endl;

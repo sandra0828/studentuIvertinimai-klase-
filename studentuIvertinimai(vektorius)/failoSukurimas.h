@@ -1,7 +1,7 @@
 #pragma once
 
 #include <fstream>
-#include "Asmuo.h"
+#include "Studentas.h"
 #include <algorithm>
 #include <chrono>
 #include <random>

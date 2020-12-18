@@ -1,6 +1,6 @@
 #include "studentuSarasoDalinimas.h"
 
-void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string skaiciavimoBudas, string strategija)
+void studentuRusiavimas(vector <Studentas>& studentai, vector <Studentas>& galvociai, vector <Studentas>& vargsiukai, string skaiciavimoBudas, string strategija)
 {
     galutinisPazymys(studentai, skaiciavimoBudas);
 
@@ -9,7 +9,7 @@ void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, ve
 
     if (strategija == "1")
     {
-        vector <Asmuo>::iterator it = std::partition(studentai.begin(), studentai.end(), arDaugiau_5);
+        vector <Studentas>::iterator it = std::partition(studentai.begin(), studentai.end(), arDaugiau_5);
         copy(studentai.begin(), it, back_inserter(galvociai));
         copy(it, studentai.end(), back_inserter(vargsiukai));
         studentai.clear();
@@ -32,7 +32,7 @@ void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, ve
     }
     else
     {
-        vector <Asmuo>::iterator it = std::partition (studentai.begin(), studentai.end(), arDaugiau_5);
+        vector <Studentas>::iterator it = std::partition (studentai.begin(), studentai.end(), arDaugiau_5);
         std::move(studentai.begin(), it, back_inserter(galvociai));
         studentai.erase(studentai.begin(), it);
         vargsiukai = studentai;
@@ -46,7 +46,7 @@ void studentuRusiavimas(vector <Asmuo>& studentai, vector <Asmuo>& galvociai, ve
     std::cout << "Studentu padalinimas i du sarasus uztruko: " << diff.count() << " s\n";
 }
 
-void naujiSarasai(vector <Asmuo>& galvociai, vector <Asmuo>& vargsiukai, string kiek)
+void naujiSarasai(vector <Studentas>& galvociai, vector <Studentas>& vargsiukai, string kiek)
 {
     auto start = std::chrono::high_resolution_clock::now();
     ofstream fr1("Galvociai" + kiek + ".txt");

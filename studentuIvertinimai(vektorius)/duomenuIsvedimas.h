@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Asmuo.h"
+#include "Studentas.h"
 #include "pagalbine.h"
 #include <algorithm>
 
@@ -11,4 +11,4 @@ using std::fixed;
 using std::left;
 using std::vector;
 
-void duomenuIsvedimas(vector <Asmuo> studentai);
+void duomenuIsvedimas(vector <Studentas> studentai);

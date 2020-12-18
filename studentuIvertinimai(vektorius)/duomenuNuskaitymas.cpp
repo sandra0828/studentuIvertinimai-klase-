@@ -1,6 +1,6 @@
 #include "duomenuNuskaitymas.h"
 
-void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas)
+void duomenuNuskaitymas(vector <Studentas>& stud, string failoVardas)
 {
     auto start = std::chrono::high_resolution_clock::now();
     ifstream fd(failoVardas);
@@ -29,7 +29,7 @@ void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas)
 
     while (!fd.eof())
     {
-        Asmuo asmuo(fd, kiekZodziu);
+        Studentas asmuo(fd, kiekZodziu);
         stud.push_back(asmuo);
     }
 

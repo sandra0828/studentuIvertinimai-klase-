@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Asmuo.h"
+#include "Studentas.h"
 #include "duomenuIvedimas.h"
 #include "duomenuNuskaitymas.h"
 
@@ -9,4 +9,4 @@ using std::cin;
 using std::vector;
 using std::endl;
 
-void duomenuPasirinkimas(vector <Asmuo>& studentai);
+void duomenuPasirinkimas(vector <Studentas>& studentai);

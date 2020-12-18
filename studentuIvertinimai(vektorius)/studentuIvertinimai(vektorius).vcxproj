@@ -140,7 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Asmuo.cpp" />
+    <ClCompile Include="Studentas.cpp" />
     <ClCompile Include="duomenuIsvedimas.cpp" />
     <ClCompile Include="duomenuIvedimas.cpp" />
     <ClCompile Include="duomenuNuskaitymas.cpp" />
@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Antrastes.h" />
     <ClInclude Include="Asmuo.h" />
+    <ClInclude Include="Studentas.h" />
     <ClInclude Include="duomenuIsvedimas.h" />
     <ClInclude Include="duomenuIvedimas.h" />
     <ClInclude Include="duomenuNuskaitymas.h" />

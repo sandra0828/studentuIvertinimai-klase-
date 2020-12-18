@@ -37,7 +37,7 @@ void pazymiuIvedimas(vector <int>& paz, int& egz)
     }
 }
 
-void duomenuIvedimas(vector <Asmuo>& stud)
+void duomenuIvedimas(vector <Studentas>& stud)
 {
     int studentuSk;
     cout << "Kiek bus studentu? " << endl;
@@ -70,8 +70,8 @@ void duomenuIvedimas(vector <Asmuo>& stud)
             pazymiuIvedimas(pazymiai, egzaminas);
         }
 
-        Asmuo asmuo(vardas, pavarde, pazymiai, egzaminas);
-        stud.push_back(asmuo);
+        Studentas studentas(vardas, pavarde, pazymiai, egzaminas);
+        stud.push_back(studentas);
     }
 }
 

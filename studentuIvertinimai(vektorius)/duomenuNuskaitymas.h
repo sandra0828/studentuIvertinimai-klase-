@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Asmuo.h"
+#include "Studentas.h"
 #include "pagalbine.h"
 #include <fstream>
 #include <sstream>
@@ -15,4 +15,4 @@ using std::getline;
 using std::stringstream;
 using std::ws;
 
-void duomenuNuskaitymas(vector <Asmuo>& stud, string failoVardas);
+void duomenuNuskaitymas(vector <Studentas>& stud, string failoVardas);
