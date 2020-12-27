@@ -1,0 +1,75 @@
+[OPTIONS]
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Title=StudentuDuomenuBaze
+
+[WINDOWS]
+main="StudentuDuomenuBaze","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+_antrastes_8h.html
+_antrastes_8h_source.html
+_asmuo_8h.html
+_asmuo_8h_source.html
+_studentas_8cpp.html
+_studentas_8h.html
+_studentas_8h_source.html
+annotated.html
+class_asmuo-members.html
+class_asmuo.html
+class_studentas-members.html
+class_studentas.html
+classes.html
+duomenu_isvedimas_8cpp.html
+duomenu_isvedimas_8h.html
+duomenu_isvedimas_8h_source.html
+duomenu_ivedimas_8cpp.html
+duomenu_ivedimas_8h.html
+duomenu_ivedimas_8h_source.html
+duomenu_nuskaitymas_8cpp.html
+duomenu_nuskaitymas_8h.html
+duomenu_nuskaitymas_8h_source.html
+duomenu_pasirinkimas_8cpp.html
+duomenu_pasirinkimas_8h.html
+duomenu_pasirinkimas_8h_source.html
+failo_sukurimas_8cpp.html
+failo_sukurimas_8h.html
+failo_sukurimas_8h_source.html
+files.html
+functions.html
+functions_func.html
+functions_vars.html
+galutinis_pazymys_8cpp.html
+galutinis_pazymys_8h.html
+galutinis_pazymys_8h_source.html
+globals.html
+globals_func.html
+hierarchy.html
+index.html
+pagalbine_8cpp.html
+pagalbine_8h.html
+pagalbine_8h_source.html
+studentu_ivertinimai_07vektorius_08_8cpp.html
+studentu_ivertinimai_8cpp.html
+studentu_saraso_dalinimas_8cpp.html
+studentu_saraso_dalinimas_8h.html
+studentu_saraso_dalinimas_8h_source.html
+bc_s.png
+bdwn.png
+class_asmuo.png
+class_studentas.png
+closed.png
+nav_f.png
+nav_h.png
+open.png
+sync_off.png
+sync_on.png
+tab_a.png
+tab_b.png
+tab_h.png
+tab_s.png
